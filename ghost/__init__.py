@@ -9,6 +9,8 @@
 
 import os
 
+from ghost.utils import pdfwrite
+
 __version__ = '0.0.0'
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
