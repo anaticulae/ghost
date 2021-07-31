@@ -15,28 +15,41 @@ import PIL.Image
 
 import ghost
 
+DPI = 72
+RENDERER = 300
 
-def images(source: str, boundings: iamraw.ImageInformations) -> list:
+
+def images(source: str, boundings: iamraw.ImageInformations, dpi=DPI) -> list:
     pages = set(item.page for item in boundings)
-    root = ghost.pdfwrite(source, pages=pages)
+    root = ghost.pdfwrite(source, dpi=RENDERER, pages=pages)
     pagenr = {page: index for index, page in enumerate(pages, start=1)}
     loaded = [
         load_image(
             bounding,
             path=os.path.join(root, f'{pagenr[bounding.page]}.png'),
+            dpi=dpi,
         ) for bounding in boundings
     ]
     return loaded
 
 
-def load_image(bounding: iamraw.ImageInformation, path: str) -> bytes:
+def load_image(bounding: iamraw.ImageInformation, path: str, dpi=DPI) -> bytes:
     raw = io.BytesIO()
     with PIL.Image.open(path, formats=('png',)) as loaded:
-        left, upper, right, lower = bounding.bounding
-        croped = loaded.crop((left, upper, right, lower))
+        # left, upper, right, lower
+        bounding = tuple_mult(bounding.bounding, value=RENDERER / dpi)
+        croped = loaded.crop(bounding)
         croped.save(raw, format='png')
     # rewind the buffer
     raw.seek(0)
     # convert to bytes
     result = raw.getvalue()
     return result
+
+
+def tuple_mult(items, value):
+    """\
+    >>> tuple_mult((4, 6, 10), 0.5)
+    (2.0, 3.0, 5.0)
+    """
+    return tuple(item * value for item in items)
