@@ -24,10 +24,20 @@ def pdfwrite(source: str, dpi: int = 300, pages: tuple = None):
     destination = os.path.join(root, '%d.png')
     if pages:
         # -sPageList=1,3,5
-        pages = '-sPageList=' + (','.join([str(page + 1) for page in pages]))
+        pages = tuple_plus(pages, value=1)
+        pages: str = utila.from_tuple(pages, separator=',')
+        pages = f'-sPageList={pages}'
     else:
         pages = ''
     config = f'-sDEVICE=png16m -r{dpi} -dBATCH -dNOPAUSE -SAFE'
     cmd = f'{GHOST} {config} {pages} -sOutputFile={destination} {source}'
     utila.run(cmd)
     return root
+
+
+def tuple_plus(items, value):
+    """\
+    >>> tuple_plus((4, 6, 10), 5)
+    (9, 11, 15)
+    """
+    return tuple(item + value for item in items)
