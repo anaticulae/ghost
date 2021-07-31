@@ -23,6 +23,8 @@ def pdfwrite(source: str, dpi: int = 300, pages: tuple = None):
     root = utila.tmpdir(root=ghost.ROOT)
     destination = os.path.join(root, '%d.png')
     if pages:
+        # ghost requires sorted page numbers
+        pages = sorted(pages)
         # -sPageList=1,3,5
         pages = tuple_plus(pages, value=1)
         pages: str = utila.from_tuple(pages, separator=',')
