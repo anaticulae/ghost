@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.1.1
+
+### Fix
+
+* ensure that pdf number is converted correctly (113d5779d8ed)
+
 ## v0.1.0
 
 ### Feature
