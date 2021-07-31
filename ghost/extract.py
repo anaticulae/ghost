@@ -12,6 +12,7 @@ import os
 
 import iamraw
 import PIL.Image
+import utila
 
 import ghost
 
@@ -37,7 +38,10 @@ def load_image(bounding: iamraw.ImageInformation, path: str, dpi=DPI) -> bytes:
     raw = io.BytesIO()
     with PIL.Image.open(path, formats=('png',)) as loaded:
         # left, upper, right, lower
-        bounding = tuple_mult(bounding.bounding, value=RENDERER / dpi)
+        bounding = utila.tuple_mult(
+            bounding.bounding,
+            value=RENDERER / dpi,
+        )
         croped = loaded.crop(bounding)
         croped.save(raw, format='png')
     # rewind the buffer
@@ -45,11 +49,3 @@ def load_image(bounding: iamraw.ImageInformation, path: str, dpi=DPI) -> bytes:
     # convert to bytes
     result = raw.getvalue()
     return result
-
-
-def tuple_mult(items, value):
-    """\
-    >>> tuple_mult((4, 6, 10), 0.5)
-    (2.0, 3.0, 5.0)
-    """
-    return tuple(item * value for item in items)

@@ -31,7 +31,7 @@ def pdfwrite(
         # ghost requires sorted page numbers
         pages = sorted(pages)
         # -sPageList=1,3,5
-        pages = tuple_plus(pages, value=1)
+        pages = utila.tuple_plus(pages, value=1)
         pages: str = utila.from_tuple(pages, separator=',')
         pages = f'-sPageList={pages}'
     else:
@@ -40,11 +40,3 @@ def pdfwrite(
     cmd = f'{GHOST} {config} {pages} -sOutputFile={destination} {source}'
     utila.run(cmd)
     return root
-
-
-def tuple_plus(items, value):
-    """\
-    >>> tuple_plus((4, 6, 10), 5)
-    (9, 11, 15)
-    """
-    return tuple(item + value for item in items)
