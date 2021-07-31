@@ -9,6 +9,7 @@
 
 import os
 
+from ghost.extract import images
 from ghost.utils import pdfwrite
 
 __version__ = '0.0.0'
