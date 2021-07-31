@@ -36,5 +36,5 @@ def test_pdfwrite_pages():
         utila.file_read_binary(os.path.join(path, item)) for item in extracted
     ]
     # verify that page number converting works
-    utilatest.assert_bin(loaded[0], 2556935404)
-    utilatest.assert_bin(loaded[1], 1896570126)
+    utilatest.assert_bin(loaded[0], 3201675645)
+    utilatest.assert_bin(loaded[1], 1204049905)

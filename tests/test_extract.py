@@ -33,4 +33,4 @@ def test_images(testdir):
     image = loaded[0]
     utila.file_create_binary(png, content=image)
     # verify result
-    utilatest.assert_bin(image, 4221506289)
+    utilatest.assert_bin(image, 868070510)

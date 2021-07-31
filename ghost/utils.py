@@ -19,7 +19,12 @@ GHOST = 'gswin64c' if os.name == 'nt' else 'gs'
 utila.run(f'where {GHOST}')
 
 
-def pdfwrite(source: str, dpi: int = 300, pages: tuple = None):
+def pdfwrite(
+    source: str,
+    dpi: int = 300,
+    formats: str = 'pngalpha',
+    pages: tuple = None,
+):
     root = utila.tmpdir(root=ghost.ROOT)
     destination = os.path.join(root, '%d.png')
     if pages:
@@ -31,7 +36,7 @@ def pdfwrite(source: str, dpi: int = 300, pages: tuple = None):
         pages = f'-sPageList={pages}'
     else:
         pages = ''
-    config = f'-sDEVICE=png16m -r{dpi} -dBATCH -dNOPAUSE -SAFE'
+    config = f'-sDEVICE={formats} -r{dpi} -dBATCH -dNOPAUSE -SAFE'
     cmd = f'{GHOST} {config} {pages} -sOutputFile={destination} {source}'
     utila.run(cmd)
     return root
