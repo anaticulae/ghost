@@ -7,6 +7,8 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import os
+
 import power
 import utila
 import utilatest
@@ -15,8 +17,24 @@ import ghost
 
 
 @utilatest.longrun
-def test_pdfwrite():
+def test_pdfwrite_all():
     source = power.TECH019_PDF
     path = ghost.pdfwrite(source)
     extracted = utila.file_list(path)
     assert len(extracted) == 19
+
+
+def test_pdfwrite_pages():
+    """Ghost script page numbers are ascending instead of names by page
+    number."""
+    source = power.TECH019_PDF
+    path = ghost.pdfwrite(source, pages=(3, 7))
+    extracted = utila.file_list(path)
+    expected = ['1.png', '2.png']
+    assert extracted == expected
+    loaded = [
+        utila.file_read_binary(os.path.join(path, item)) for item in extracted
+    ]
+    # verify that page number converting works
+    utilatest.assert_bin(loaded[0], 2556935404)
+    utilatest.assert_bin(loaded[1], 1896570126)

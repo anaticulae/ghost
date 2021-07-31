@@ -17,15 +17,19 @@ import ghost
 
 
 def images(source: str, boundings: iamraw.ImageInformations) -> list:
-    pages = {item.page for item in boundings}
+    pages = set(item.page for item in boundings)
+    pagenr = {page: index for index, page in enumerate(pages, start=1)}
     root = ghost.pdfwrite(source, pages=pages)
-    loaded = [load_images(bounding, root=root) for bounding in boundings]
+    loaded = [
+        load_image(
+            bounding,
+            path=os.path.join(root, f'{pagenr[bounding.page]}.png'),
+        ) for bounding in boundings
+    ]
     return loaded
 
 
-def load_images(bounding: iamraw.ImageInformation, root: str) -> bytes:
-    page = bounding.page
-    path = os.path.join(root, f'{page+1}.png')
+def load_image(bounding: iamraw.ImageInformation, path: str) -> bytes:
     raw = io.BytesIO()
     with PIL.Image.open(path, formats=('png',)) as loaded:
         left, upper, right, lower = bounding.bounding
