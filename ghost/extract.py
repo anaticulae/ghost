@@ -18,8 +18,8 @@ import ghost
 
 def images(source: str, boundings: iamraw.ImageInformations) -> list:
     pages = set(item.page for item in boundings)
-    pagenr = {page: index for index, page in enumerate(pages, start=1)}
     root = ghost.pdfwrite(source, pages=pages)
+    pagenr = {page: index for index, page in enumerate(pages, start=1)}
     loaded = [
         load_image(
             bounding,
