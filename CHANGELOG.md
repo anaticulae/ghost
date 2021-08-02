@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.2.2
+
+### Fix
+
+* ensure bounding box page matching (6d9dc1331c32)
+
 ## v0.2.1
 
 ## v0.2.0
