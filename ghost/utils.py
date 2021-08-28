@@ -27,7 +27,9 @@ def pdfwrite(
 ):
     root = utila.tmpdir(root=ghost.ROOT)
     destination = os.path.join(root, '%d.png')
-    if pages:
+    if pages is not None:
+        if isinstance(pages, int):
+            pages = (pages,)
         # ghost requires sorted page numbers
         pages = sorted(pages)
         # -sPageList=1,3,5
@@ -35,7 +37,7 @@ def pdfwrite(
         pages: str = utila.from_tuple(pages, separator=',')
         pages = f'-sPageList={pages}'
     else:
-        pages = ''
+        pages: str = ''
     config = f'-sDEVICE={formats} -r{dpi} -dBATCH -dNOPAUSE -SAFE'
     cmd = f'{GHOST} {config} {pages} -sOutputFile={destination} {source}'
     utila.run(cmd)
