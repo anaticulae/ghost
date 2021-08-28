@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.2.3
+
+### Fix
+
+* extend interface to handle int as page number (86565c7527f9)
+
 ## v0.2.2
 
 ### Fix
