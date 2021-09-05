@@ -6,19 +6,19 @@
 # use or distribution is an offensive act against international law and may
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
-"""Optimize PDF
-============
 
-Use GhostScript to optimize pdf file.
-"""
+import os
 
-import utila
+import pdfinfo.pages
+import power
 
-import ghost.utils
+import ghost
 
 
-def small(source: str, destination: str, pages: tuple = None):
-    pages = ghost.utils.gpages_fromtuple(pages)
-    config = '-sDEVICE=pdfwrite -dBATCH -dNOPAUSE -SAFE'
-    cmd = f'{ghost.utils.GHOST} {config} {pages} -sOutputFile={destination} {source}'
-    utila.run(cmd)
+def test_optimize_small(testdir):
+    """Shrink pdf to given number of pages."""
+    source = power.PAPER06B_PDF
+    outpath = os.path.join(testdir.tmpdir, 'optimo.pdf')
+    ghost.small(source, outpath, pages=(3, 4))
+    pages = pdfinfo.pages.determine(outpath)
+    assert pages == 2

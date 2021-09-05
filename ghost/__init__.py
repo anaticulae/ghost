@@ -10,6 +10,7 @@
 import os
 
 from ghost.extract import images
+from ghost.optimize import small
 from ghost.utils import pdfwrite
 
 __version__ = '0.2.3'
