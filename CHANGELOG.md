@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.3.0
+
+### Feature
+
+* add method to reduce size of pdf file (f66471ddc6e4)
+
 ## v0.2.3
 
 ### Fix
