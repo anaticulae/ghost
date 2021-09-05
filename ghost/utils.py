@@ -26,19 +26,29 @@ def pdfwrite(
     pages: tuple = None,
 ):
     root = utila.tmpdir(root=ghost.ROOT)
+    pages = gpages_fromtuple(pages)
     destination = os.path.join(root, '%d.png')
-    if pages is not None:
-        if isinstance(pages, int):
-            pages = (pages,)
-        # ghost requires sorted page numbers
-        pages = sorted(pages)
-        # -sPageList=1,3,5
-        pages = utila.tuple_plus(pages, value=1)
-        pages: str = utila.from_tuple(pages, separator=',')
-        pages = f'-sPageList={pages}'
-    else:
-        pages: str = ''
     config = f'-sDEVICE={formats} -r{dpi} -dBATCH -dNOPAUSE -SAFE'
     cmd = f'{GHOST} {config} {pages} -sOutputFile={destination} {source}'
     utila.run(cmd)
     return root
+
+
+def gpages_fromtuple(pages: tuple = None) -> str:
+    """\
+    >>> gpages_fromtuple((1, 2, 3))
+    '-sPageList=2,3,4'
+    >>> gpages_fromtuple()
+    ''
+    """
+    if pages is None:
+        return ''
+    if isinstance(pages, int):
+        pages = (pages,)
+    # ghost requires sorted page numbers
+    pages = sorted(pages)
+    # -sPageList=1,3,5
+    pages = utila.tuple_plus(pages, value=1)
+    pages: str = utila.from_tuple(pages, separator=',')
+    pages = f'-sPageList={pages}'
+    return pages
