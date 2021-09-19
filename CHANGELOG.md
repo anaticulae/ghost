@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.3.1
+
+### Feature
+
+* add option to change pdf output folder (96fcad3a4bc7)
+
 ## v0.3.0
 
 ### Feature
