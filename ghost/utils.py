@@ -23,11 +23,15 @@ def pdfwrite(
     source: str,
     dpi: int = 300,
     formats: str = 'pngalpha',
+    root: str = None,
     pages: tuple = None,
 ):
-    root = utila.tmpdir(root=ghost.ROOT)
+    root = utila.tmpdir(root=ghost.ROOT) if root is None else root
+    if isinstance(pages, int):
+        destination = os.path.join(root, f'{pages}.png')
+    else:
+        destination = os.path.join(root, '%d.png')
     pages = gpages_fromtuple(pages)
-    destination = os.path.join(root, '%d.png')
     config = f'-sDEVICE={formats} -r{dpi} -dBATCH -dNOPAUSE -SAFE'
     cmd = f'{GHOST} {config} {pages} -sOutputFile={destination} {source}'
     utila.run(cmd)
