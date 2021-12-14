@@ -38,3 +38,10 @@ def test_pdfwrite_pages():
     # verify that page number converting works
     utilatest.assert_bin(loaded[0], 3201675645)
     utilatest.assert_bin(loaded[1], 1204049905)
+
+
+def test_pdfwrite_with_spaces(testdir):
+    dest = testdir.tmpdir.join('space with space.pdf')
+    utila.file_copy(source=power.TECH019_PDF, destination=dest)
+    ghost.pdfwrite(dest, root=testdir.tmpdir, pages=1)
+    assert len(utila.file_list(path=testdir.tmpdir)) == 2
