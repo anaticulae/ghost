@@ -33,6 +33,7 @@ def pdfwrite(
         destination = os.path.join(root, '%d.png')
     pages = gpages_fromtuple(pages)
     config = f'-sDEVICE={formats} -r{dpi} -dBATCH -dNOPAUSE -SAFE'
+    source = f'"{source}"'
     cmd = f'{GHOST} {config} {pages} -sOutputFile={destination} {source}'
     utila.run(cmd)
     return root

@@ -20,5 +20,6 @@ import ghost.utils
 def small(source: str, destination: str, pages: tuple = None):
     pages = ghost.utils.gpages_fromtuple(pages)
     config = '-sDEVICE=pdfwrite -dBATCH -dNOPAUSE -SAFE'
+    source = f'"{source}"'
     cmd = f'{ghost.utils.GHOST} {config} {pages} -sOutputFile={destination} {source}'
     utila.run(cmd)
