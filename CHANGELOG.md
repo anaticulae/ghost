@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.3.2
+
+### Fix
+
+* escape path to handle file names with spaces (f18481573bab)
+
 ## v0.3.1
 
 ### Feature

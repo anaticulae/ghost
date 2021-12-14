@@ -13,6 +13,6 @@ from ghost.extract import images
 from ghost.optimize import small
 from ghost.utils import pdfwrite
 
-__version__ = '0.3.1'
+__version__ = '0.3.2'
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
