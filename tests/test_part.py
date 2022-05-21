@@ -7,6 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import painter
 import power
 
 import ghost.parts
@@ -25,3 +26,4 @@ def test_parts(testdir):
         boundings=boundings,
     )
     assert len(extracted) == 1
+    painter.show_figure(extracted[0])
