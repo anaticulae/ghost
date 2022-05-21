@@ -77,7 +77,7 @@ def write_images(inpath, outpath, dpi: float, pages: tuple = None):
         utila.file_copy(path, dst=dst)
 
 
-def parse_pages(pages, inpath):
+def parse_pages(pages: tuple, inpath: str) -> tuple:
     pagecount = pdfinfo.pages.determine(inpath)
     if not pages:
         return utila.rtuple(pagecount)
