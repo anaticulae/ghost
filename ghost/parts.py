@@ -45,8 +45,9 @@ def parts(source: str, boundings: list) -> list:
     result = []
     for item in boundings:
         page, bounding = item.page, item.bounding
+        color = item.color
         path = extracted[page]
-        part = extract_part(path, bounding)
+        part = extract_part(path, bounding, color)
         result.append(part)
     return result
 
@@ -69,12 +70,16 @@ def extract(source, boundings: list) -> dict:
     return result
 
 
-def extract_part(path: str, bounding: tuple) -> bytes:
+def extract_part(path: str, bounding: tuple, color=None) -> bytes:
     raw = io.BytesIO()
     with PIL.Image.open(path, formats=('png',)) as loaded:
         size = loaded._size  # pylint:disable=W0212
-        mask = create_mask(bounding, size=size)
+        mask = create_mask(
+            bounding,
+            size=size,
+        )
         image = PIL.ImageChops.multiply(loaded, mask)
+        image = colorize(image, color=color)
         image.save(raw, format='png')
     # rewind the buffer
     raw.seek(0)
@@ -84,7 +89,34 @@ def extract_part(path: str, bounding: tuple) -> bytes:
 
 
 def create_mask(bounding: tuple, size: tuple) -> PIL.Image:
-    image = PIL.Image.new(mode='RGBA', size=size)
+    image = PIL.Image.new(
+        mode='RGBA',
+        size=size,
+    )
     draw = PIL.ImageDraw.Draw(image)
-    draw.rectangle(bounding, fill='black')
+    color = (0, 0, 0, 255)
+    draw.rectangle(
+        bounding,
+        fill=color,
+    )
+    return image
+
+
+def colorize(image, color):
+    if color is None:
+        color = (255, 0, 0)
+    # split the image into individual bands
+    source = image.split()
+    alpha = 3
+    # select regions where alpha is selected
+    mask = source[alpha].point(lambda i: i)
+    # process the green band
+    for band, col in enumerate(color):
+        source[band].paste(
+            source[band].point(lambda i: col),  # pylint:disable=cell-var-from-loop
+            None,
+            mask,
+        )
+    # build a new multiband image
+    image = PIL.Image.merge(image.mode, source)
     return image
