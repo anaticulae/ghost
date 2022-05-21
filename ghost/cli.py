@@ -26,10 +26,11 @@ CONFIG = utila.ParserConfiguration(
 
 @utila.saveme
 def main():
-    inpath, outpath, pages = eval_cli()
+    inpath, outpath, dpi, pages = eval_cli()
     write_images(
         inpath,
         outpath=outpath,
+        dpi=dpi,
         pages=pages,
     )
     return utila.SUCCESS
@@ -39,7 +40,13 @@ def eval_cli():
     parser = utila.cli.create_parser(
         config=CONFIG,
         description=DESCRIPTION,
-        todo=[],
+        todo=[
+            utila.Parameter(
+                longcut='dpi',
+                message='use 216 as default',
+                args=dict(default=216.0),
+            )
+        ],
         version=ghost.__version__,
     )
     args = utila.parse(parser)
@@ -47,15 +54,20 @@ def eval_cli():
     # It is only single path supported. Run program multiple times if more
     # than one analysis is required.
     inpath = inpath[0]
+    dpi = args.get('dpi', 216.0)
     pages = parse_pages(
         args.get('pages', None),
         inpath=inpath,
     )
-    return inpath, outpath, pages
+    return inpath, outpath, dpi, pages
 
 
-def write_images(inpath, outpath, pages: tuple = None):
-    root = ghost.pdfwrite(source=inpath, pages=pages)
+def write_images(inpath, outpath, dpi: float, pages: tuple = None):
+    root = ghost.pdfwrite(
+        source=inpath,
+        dpi=dpi,
+        pages=pages,
+    )
     written = utila.file_list(root, include='png', absolute=True)
     written.sort(key=lambda x: utila.file_name(x).zfill(4))
     for path, filename in zip(written, pages):
