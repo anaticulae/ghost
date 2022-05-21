@@ -2,6 +2,21 @@
 
 Every noteable change is logged here.
 
+## v0.6.0
+
+### Feature
+
+* add method to convert from pdf to render bounding (8acb5d5b4f05)
+* extend public API (525e09784ba7)
+* add run method to run on complete document (8c7ba967bcba)
+* add parameter to render different color (bc77386d18b1)
+* add name to distinguish output (af8fde03c0a3)
+* add method to extract parts of pdf (52fb6f91fdf4)
+
+### Documentation
+
+* extend interface documentation (6a45831fad69)
+
 ## v0.5.0
 
 ### Feature
