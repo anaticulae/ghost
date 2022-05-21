@@ -37,6 +37,20 @@ class Part:
         raise IndexError
 
 
+def run(src: str, dst: str, boundings: list) -> list:
+    result = []
+    extracted = parts(source=src, boundings=boundings)
+    for image, bounding in zip(extracted, boundings):
+        name = bounding.name
+        if name is None:
+            name = utila.tmpname()
+        outpath = utila.join(dst, f'{name}.png')
+        utila.debug(outpath)
+        utila.file_create_binary(outpath, content=image)
+        result.append(outpath)
+    return result
+
+
 def parts(source: str, boundings: list) -> list:
     extracted = extract(
         source=source,
