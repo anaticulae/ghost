@@ -16,6 +16,7 @@ import PIL.ImageDraw
 import utila
 
 import ghost
+import ghost.cli
 
 
 @dataclasses.dataclass
@@ -48,6 +49,19 @@ def run(src: str, dst: str, boundings: list) -> list:
         utila.debug(outpath)
         utila.file_create_binary(outpath, content=image)
         result.append(outpath)
+    return result
+
+
+# TODO: HOLY VALUE
+DPI_PDF = 72.0
+
+
+def bounding_convert(pdf: tuple, dpi: int = ghost.cli.DPI) -> tuple:
+    assert dpi and DPI_PDF, f'invalid dpi: {dpi}, {DPI_PDF}'
+    result = utila.tuple_mult(
+        pdf,
+        value=dpi / DPI_PDF,
+    )
     return result
 
 

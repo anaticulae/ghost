@@ -12,6 +12,7 @@ import os
 from ghost.extract import images
 from ghost.optimize import small
 from ghost.parts import Part
+from ghost.parts import bounding_convert
 from ghost.parts import run
 from ghost.utils import pdfwrite
 
