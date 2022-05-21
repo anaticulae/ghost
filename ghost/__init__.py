@@ -11,6 +11,8 @@ import os
 
 from ghost.extract import images
 from ghost.optimize import small
+from ghost.parts import Part
+from ghost.parts import run
 from ghost.utils import pdfwrite
 
 __version__ = '0.5.0'
