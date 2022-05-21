@@ -45,4 +45,7 @@ if __name__ == "__main__":
         packages=[
             'ghost',
         ],
+        entry_points={
+            'console_scripts': ['ghost = ghost.cli:main'],
+        },
     )
