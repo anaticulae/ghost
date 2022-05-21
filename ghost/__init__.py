@@ -13,7 +13,7 @@ from ghost.extract import images
 from ghost.optimize import small
 from ghost.utils import pdfwrite
 
-__version__ = '0.4.0'
+__version__ = '0.5.0'
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 PROCESS = 'ghost'

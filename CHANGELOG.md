@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.5.0
+
+### Feature
+
+* add dpi parameter to configure renderer (e0ce5be4efd0)
+
 ## v0.4.0
 
 ### Feature
