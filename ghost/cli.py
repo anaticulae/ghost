@@ -26,6 +26,16 @@ CONFIG = utila.ParserConfiguration(
 
 @utila.saveme
 def main():
+    inpath, outpath, pages = eval_cli()
+    write_images(
+        inpath,
+        outpath=outpath,
+        pages=pages,
+    )
+    return utila.SUCCESS
+
+
+def eval_cli():
     parser = utila.cli.create_parser(
         config=CONFIG,
         description=DESCRIPTION,
@@ -37,18 +47,11 @@ def main():
     # It is only single path supported. Run program multiple times if more
     # than one analysis is required.
     inpath = inpath[0]
-    pagecount = pdfinfo.pages.determine(inpath)
-    pages = args.get('pages', None)
-    if pages:
-        pages = utila.parse_pages(pages[0], pagecount=pagecount)
-    else:
-        pages = utila.rtuple(pagecount)
-    write_images(
-        inpath,
-        outpath=outpath,
-        pages=pages,
+    pages = parse_pages(
+        args.get('pages', None),
+        inpath=inpath,
     )
-    return utila.SUCCESS
+    return inpath, outpath, pages
 
 
 def write_images(inpath, outpath, pages: tuple = None):
@@ -60,3 +63,14 @@ def write_images(inpath, outpath, pages: tuple = None):
         dst = utila.join(outpath, filename)
         utila.debug(f'write {dst}')
         utila.file_copy(path, dst=dst)
+
+
+def parse_pages(pages, inpath):
+    pagecount = pdfinfo.pages.determine(inpath)
+    if not pages:
+        return utila.rtuple(pagecount)
+    pages = utila.parse_pages(
+        pages[0],
+        pagecount=pagecount,
+    )
+    return pages
