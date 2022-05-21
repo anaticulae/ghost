@@ -23,6 +23,7 @@ class Part:
     page: int = None
     bounding: tuple = None
     color: tuple = None
+    name: str = None
 
     def __getitem__(self, index):
         if not index:
@@ -31,6 +32,8 @@ class Part:
             return self.bounding
         if index == 2:
             return self.color
+        if index == 3:
+            return self.name
         raise IndexError
 
 
