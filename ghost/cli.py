@@ -22,6 +22,7 @@ CONFIG = utila.ParserConfiguration(
     cacheflag=False,
     waitingflag=False,
 )
+DPI = 216.0
 
 
 @utila.saveme
@@ -44,7 +45,7 @@ def eval_cli():
             utila.Parameter(
                 longcut='dpi',
                 message='use 216 as default',
-                args=dict(default=216.0),
+                args=dict(default=DPI),
             )
         ],
         version=ghost.__version__,
@@ -54,7 +55,7 @@ def eval_cli():
     # It is only single path supported. Run program multiple times if more
     # than one analysis is required.
     inpath = inpath[0]
-    dpi = args.get('dpi', 216.0)
+    dpi = args.get('dpi', DPI)
     pages = parse_pages(
         args.get('pages', None),
         inpath=inpath,
