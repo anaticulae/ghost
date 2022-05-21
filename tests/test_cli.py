@@ -8,9 +8,26 @@
 # =============================================================================
 
 import power
+import utila
+import utilatest
 
 import tests
 
 
-def test_cli_help(monkeypatch):
+def test_help(monkeypatch):
     tests.run('--help', monkeypatch=monkeypatch)
+
+
+def test_run(testdir, monkeypatch):
+    outpath = testdir.tmpdir
+    cmd = f'-i {power.TECH019_PDF} -o {outpath} --pages=3:8,12:15'
+    tests.run(cmd, monkeypatch=monkeypatch)
+    assert utila.file_count(outpath) == 8
+
+
+@utilatest.longrun
+def test_all(testdir, monkeypatch):
+    outpath = testdir.tmpdir
+    cmd = f'-i {power.BACHELOR032_PDF} -o {outpath}'
+    tests.run(cmd, monkeypatch=monkeypatch)
+    assert utila.file_count(outpath) == 32
