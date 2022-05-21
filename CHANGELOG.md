@@ -2,6 +2,13 @@
 
 Every noteable change is logged here.
 
+## v0.4.0
+
+### Feature
+
+* generate pngs (a6c670f68903)
+* add ghost runner (2e50b5e87f56)
+
 ## v0.3.3
 
 ### Documentation
