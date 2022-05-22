@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.6.1
+
+### Fix
+
+* do not fail on running twice (ce3763fb3956)
+
 ## v0.6.0
 
 ### Feature
