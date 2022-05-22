@@ -47,6 +47,7 @@ def run(src: str, dst: str, boundings: list) -> list:
             name = utila.tmpname()
         outpath = utila.join(dst, f'{name}.png')
         utila.debug(outpath)
+        # TODO: SECURITY: BEFORE RELASE: USE PRIVATE LATER
         utila.file_replace_binary(outpath, content=image)
         result.append(outpath)
     return result
