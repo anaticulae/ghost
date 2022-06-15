@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.6.2
+
+### Fix
+
+* add missing process name (51dd98b167ce)
+
 ## v0.6.1
 
 ### Fix
