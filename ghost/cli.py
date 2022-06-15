@@ -48,6 +48,7 @@ def eval_cli():
                 args=dict(default=DPI),
             )
         ],
+        prog=ghost.PROCESS,
         version=ghost.__version__,
     )
     args = utila.parse(parser)
