@@ -58,6 +58,10 @@ DPI_PDF = 72.0
 
 
 def bounding_convert(pdf: tuple, dpi: int = ghost.cli.DPI) -> tuple:
+    """\
+    >>> bounding_convert((120, 120, 520, 520))
+    (360.0, 360.0, 1560.0, 1560.0)
+    """
     assert dpi and DPI_PDF, f'invalid dpi: {dpi}, {DPI_PDF}'
     result = utila.tuple_mult(
         pdf,
