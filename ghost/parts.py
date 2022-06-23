@@ -118,16 +118,22 @@ def extract_part(path: str, bounding: tuple, color=None) -> bytes:
 
 
 def create_mask(bounding: tuple, size: tuple) -> PIL.Image:
+    """Color list of rectangles defined in `bounding`."""
+    single = isinstance(bounding[0], (int, float))
+    if single:
+        bounding = [bounding]
     image = PIL.Image.new(
         mode='RGBA',
         size=size,
     )
     draw = PIL.ImageDraw.Draw(image)
     color = (0, 0, 0, 255)
-    draw.rectangle(
-        bounding,
-        fill=color,
-    )
+    for bbox in bounding:
+        # TODO: VERYIFY OVERLAPPING RECTANLGES
+        draw.rectangle(
+            bbox,
+            fill=color,
+        )
     return image
 
 
