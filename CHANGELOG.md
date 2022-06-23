@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.7.0
+
+### Feature
+
+* support multiple rectangles (31683c94a1d5)
+
 ## v0.6.2
 
 ### Fix
