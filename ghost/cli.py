@@ -7,7 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import pdfinfo.pages
+import pdfinfo
 import utila
 import utila.cli
 
@@ -80,7 +80,7 @@ def write_images(inpath, outpath, dpi: float, pages: tuple = None):
 
 
 def parse_pages(pages: tuple, inpath: str) -> tuple:
-    pagecount = pdfinfo.pages.determine(inpath)
+    pagecount = pdfinfo.pagecount(inpath)
     if not pages:
         return utila.rtuple(pagecount)
     pages = utila.parse_pages(

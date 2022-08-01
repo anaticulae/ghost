@@ -9,7 +9,7 @@
 
 import os
 
-import pdfinfo.pages
+import pdfinfo
 import power
 
 import ghost
@@ -20,5 +20,5 @@ def test_optimize_small(testdir):
     source = power.PAPER06B_PDF
     outpath = os.path.join(testdir.tmpdir, 'optimo.pdf')
     ghost.small(source, outpath, pages=(3, 4))
-    pages = pdfinfo.pages.determine(outpath)
+    pages = pdfinfo.pagecount(outpath)
     assert pages == 2
