@@ -16,7 +16,7 @@ import ghost
 GHOST = 'gswin64c' if os.name == 'nt' else 'gs'
 
 # ensure that ghost script is installed
-utila.run(f'where {GHOST}')
+utila.run(f'which {GHOST}')
 
 
 def pdfwrite(
