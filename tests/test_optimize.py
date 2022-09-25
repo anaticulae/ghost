@@ -17,10 +17,10 @@ import tests
 
 
 @tests.ghostscript
-def test_optimize_small(testdir):
+def test_optimize_small(td):
     """Shrink pdf to given number of pages."""
     source = power.PAPER06B_PDF
-    outpath = os.path.join(testdir.tmpdir, 'optimo.pdf')
+    outpath = os.path.join(td.tmpdir, 'optimo.pdf')
     ghost.small(source, outpath, pages=(3, 4))
     pages = pdfinfo.pagecount(outpath)
     assert pages == 2

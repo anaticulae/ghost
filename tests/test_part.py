@@ -15,7 +15,7 @@ import tests
 
 
 @tests.ghostscript
-def test_parts(testdir):
+def test_parts(td):  # pylint:disable=W0613
     source = power.BACHELOR028_PDF
     boundings = [
         ghost.parts.Part(
@@ -32,7 +32,7 @@ def test_parts(testdir):
 
 
 @tests.ghostscript
-def test_run_extractor(testdir):
+def test_run_extractor(td):
     source = power.BACHELOR028_PDF
     boundings = [
         ghost.parts.Part(
@@ -42,7 +42,7 @@ def test_run_extractor(testdir):
     ]
     extracted = ghost.parts.run(
         src=source,
-        dst=testdir.tmpdir,
+        dst=td.tmpdir,
         boundings=boundings,
     )
     assert len(extracted) == 1

@@ -17,7 +17,7 @@ import utilatest
 import ghost
 
 
-def test_images(testdir):
+def test_images(td):
     boundings = [
         iamraw.ImageInformation(
             page=0,
@@ -29,7 +29,7 @@ def test_images(testdir):
         boundings=boundings,
     )
     assert len(loaded) == 1
-    png = os.path.join(testdir.tmpdir, 'test.png')
+    png = os.path.join(td.tmpdir, 'test.png')
     image = loaded[0]
     utila.file_create_binary(png, content=image)
     # verify result
