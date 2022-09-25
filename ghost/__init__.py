@@ -9,6 +9,8 @@
 
 import os
 
+import utila
+
 from ghost.extract import images
 from ghost.optimize import small
 from ghost.parts import Part
@@ -20,3 +22,5 @@ __version__ = '0.7.1'
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 PROCESS = 'ghost'
+
+HAS_GHOST = utila.hasprog('gs') or utila.hasprog('gswin64c')
