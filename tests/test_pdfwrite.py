@@ -14,8 +14,10 @@ import utila
 import utilatest
 
 import ghost
+import tests
 
 
+@tests.ghostscript
 @utilatest.longrun
 def test_pdfwrite_all():
     source = power.TECH019_PDF
@@ -24,6 +26,7 @@ def test_pdfwrite_all():
     assert len(extracted) == 19
 
 
+@tests.ghostscript
 def test_pdfwrite_pages():
     """Ghost script page numbers are ascending instead of names by page
     number."""
@@ -40,6 +43,7 @@ def test_pdfwrite_pages():
     utilatest.assert_bin(loaded[1], 1204049905)
 
 
+@tests.ghostscript
 def test_pdfwrite_with_spaces(testdir):
     dst = testdir.tmpdir.join('space with space.pdf')
     utila.file_copy(src=power.TECH019_PDF, dst=dst)

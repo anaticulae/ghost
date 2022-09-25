@@ -11,8 +11,10 @@ import painter
 import power
 
 import ghost.parts
+import tests
 
 
+@tests.ghostscript
 def test_parts(testdir):
     source = power.BACHELOR028_PDF
     boundings = [
@@ -29,6 +31,7 @@ def test_parts(testdir):
     painter.show_figure(extracted[0])
 
 
+@tests.ghostscript
 def test_run_extractor(testdir):
     source = power.BACHELOR028_PDF
     boundings = [

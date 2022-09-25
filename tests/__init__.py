@@ -7,8 +7,14 @@
 # be prosecuted under federal law. Its content is company confidential.
 #==============================================================================
 
+import pytest
 import utilatest
 
 import ghost
 
 run, fail = utilatest.create_cli_runner(ghost)
+
+ghostscript = pytest.mark.skipif(
+    not ghost.HAS_GHOST,
+    reason='install ghostscript',
+)

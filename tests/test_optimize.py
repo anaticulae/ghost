@@ -13,8 +13,10 @@ import pdfinfo
 import power
 
 import ghost
+import tests
 
 
+@tests.ghostscript
 def test_optimize_small(testdir):
     """Shrink pdf to given number of pages."""
     source = power.PAPER06B_PDF
