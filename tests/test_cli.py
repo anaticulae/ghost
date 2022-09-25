@@ -18,6 +18,7 @@ def test_help(mp):
     tests.run('--help', mp=mp)
 
 
+@tests.ghostscript
 def test_run(td, mp):
     outpath = td.tmpdir
     cmd = f'-i {power.TECH019_PDF} -o {outpath} --pages=3:8,12:15'
@@ -25,6 +26,7 @@ def test_run(td, mp):
     assert utila.file_count(outpath) == 8
 
 
+@tests.ghostscript
 @utilatest.longrun
 def test_all(td, mp):
     outpath = td.tmpdir

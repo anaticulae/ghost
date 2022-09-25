@@ -15,8 +15,10 @@ import utila
 import utilatest
 
 import ghost
+import tests
 
 
+@tests.ghostscript
 def test_images(td):
     boundings = [
         iamraw.ImageInformation(
