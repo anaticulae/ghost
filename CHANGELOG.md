@@ -2,6 +2,24 @@
 
 Every noteable change is logged here.
 
+## v0.9.0 (2022-10-15)
+
+### Feature
+
+* add installed token (8388b1673734)
+
+### Documentation
+
+* add mini docks (8a374d8f5bd0)
+
+### Chore
+
+* ensure that ghost is installed (8335d795e0af)
+* convert nightly to all (4f4c473988e4)
+* use ghost container (78a0432a826a)
+* upgrade requirements.txt (9c473037a39e)
+* do not run in privileged mode (eedc12c269de)
+
 ## v0.7.1
 
 ## v0.7.0
