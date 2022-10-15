@@ -13,7 +13,7 @@ import utila
 
 import ghost
 
-GHOST = 'gswin64c' if os.name == 'nt' else 'gs'
+GHOST = 'gswin64c' if utila.iswin() else 'gs'
 
 
 def pdfwrite(
