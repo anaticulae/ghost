@@ -35,4 +35,4 @@ def test_images(td):
     image = loaded[0]
     utila.file_create_binary(png, content=image)
     # verify result
-    utilatest.assert_bin(image, 3555017284)
+    utilatest.assert_bin(image, (3555017284, 3680991176))
