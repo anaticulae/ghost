@@ -24,7 +24,7 @@ def pdfwrite(
     pages: tuple = None,
 ):
     root = utila.tmpdir(root=ghost.ROOT) if root is None else root
-    if isinstance(pages, int):
+    if isinstance(pages, int):  # pylint:disable=W0160
         destination = os.path.join(root, f'{pages}.png')
     else:
         destination = os.path.join(root, '%d.png')
