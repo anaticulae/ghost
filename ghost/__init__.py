@@ -23,4 +23,5 @@ __version__ = '0.8.0'
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 PROCESS = 'ghost'
 
-HAS_GHOST = utila.hasprog('gs') or utila.hasprog('gswin64c')
+INSTALLED = utila.hasprog('gs') or utila.hasprog('gswin64c')
+HAS_GHOST = INSTALLED
