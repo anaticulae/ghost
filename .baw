@@ -10,6 +10,3 @@
 [project]
 short = ghost
 name = pdf content
-
-[release]
-fail_on_finding = True
