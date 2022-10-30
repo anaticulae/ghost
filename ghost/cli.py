@@ -71,7 +71,6 @@ def write_images(inpath, outpath, dpi: float, pages: tuple = None):
         pages=pages,
     )
     written = utila.file_list(root, include='png', absolute=True)
-    written.sort(key=lambda x: utila.file_name(x).zfill(4))
     for path, filename in zip(written, pages):
         filename = f'{str(filename).zfill(3)}.png'
         dst = utila.join(outpath, filename)
