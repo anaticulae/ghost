@@ -7,7 +7,14 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import utila
+import utilatest
 from utilatest import mp  # pylint:disable=W0611
 from utilatest import td  # pylint:disable=W0611
 
+import ghost
+
 pytest_plugins = ['pytester', 'xdist']  # pylint: disable=invalid-name
+
+if not utila.hasprog(ghost.PROCESS):
+    utilatest.install_package(utila.baw_root(__file__))
