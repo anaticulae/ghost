@@ -2,6 +2,22 @@
 
 Every noteable change is logged here.
 
+## v0.9.1 (2023-01-01)
+
+### Documentation
+
+* happy New Year! (7d87ee799c46)
+
+### Chore
+
+* ensure that ghost is installed (6e540d07a638)
+* upgrade requirements.txt (cb51571bfc0c)
+* use quick install (b68f48e786ed)
+* upgrade pipeline (5f1331c27686)
+* remove default case (dcf224a459d6)
+* upgrade requirements.txt (4949f96e292a)
+* upgrade environment (99c8ad8bc259)
+
 ## v0.9.0 (2022-10-15)
 
 ### Feature

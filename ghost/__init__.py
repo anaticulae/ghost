@@ -18,7 +18,7 @@ from ghost.parts import bounding_convert
 from ghost.parts import run
 from ghost.utils import pdfwrite
 
-__version__ = '0.9.0'
+__version__ = '0.9.1'
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 PROCESS = 'ghost'
