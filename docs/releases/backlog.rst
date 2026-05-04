@@ -3,4 +3,4 @@
 backlog
 =======
 
-* parallelize png creation, ghost is executed with single cpu
+* parallelize png creation, ughost is executed with single cpu

@@ -10,20 +10,20 @@
 import painter
 import power
 
-import ghost.parts
 import tests
+import ughost.parts
 
 
-@tests.ghostscript
+@tests.ughostscript
 def test_parts(td):  # pylint:disable=W0613
     source = power.BACHELOR028_PDF
     boundings = [
-        ghost.parts.Part(
+        ughost.parts.Part(
             page=0,
             bounding=(800.0, 1000.0, 1000.0, 1800),
         )
     ]
-    extracted = ghost.parts.parts(
+    extracted = ughost.parts.parts(
         source=source,
         boundings=boundings,
     )
@@ -31,16 +31,16 @@ def test_parts(td):  # pylint:disable=W0613
     painter.show_figure(extracted[0])
 
 
-@tests.ghostscript
+@tests.ughostscript
 def test_run_extractor(td):
     source = power.BACHELOR028_PDF
     boundings = [
-        ghost.parts.Part(
+        ughost.parts.Part(
             page=0,
             bounding=(800.0, 1000.0, 1000.0, 1800),
         )
     ]
-    extracted = ghost.parts.run(
+    extracted = ughost.parts.run(
         src=source,
         dst=td.tmpdir,
         boundings=boundings,

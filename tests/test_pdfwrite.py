@@ -13,25 +13,25 @@ import power
 import utila
 import utilatest
 
-import ghost
 import tests
+import ughost
 
 
-@tests.ghostscript
+@tests.ughostscript
 @utilatest.longrun
 def test_pdfwrite_all():
     source = power.TECH019_PDF
-    path = ghost.pdfwrite(source)
+    path = ughost.pdfwrite(source)
     extracted = utila.file_list(path)
     assert len(extracted) == 19
 
 
-@tests.ghostscript
+@tests.ughostscript
 def test_pdfwrite_pages():
-    """Ghost script page numbers are ascending instead of names by page
+    """ughost script page numbers are ascending instead of names by page
     number."""
     source = power.TECH019_PDF
-    path = ghost.pdfwrite(source, pages=(3, 7))
+    path = ughost.pdfwrite(source, pages=(3, 7))
     extracted = utila.file_list(path)
     expected = ['1.png', '2.png']
     assert extracted == expected
@@ -43,9 +43,9 @@ def test_pdfwrite_pages():
     utilatest.assert_bin(loaded[1], (1204049905, 3839788996))
 
 
-@tests.ghostscript
+@tests.ughostscript
 def test_pdfwrite_with_spaces(td):
     dst = td.tmpdir.join('space with space.pdf')
     utila.file_copy(src=power.TECH019_PDF, dst=dst)
-    ghost.pdfwrite(dst, root=td.tmpdir, pages=1)
+    ughost.pdfwrite(dst, root=td.tmpdir, pages=1)
     assert len(utila.file_list(path=td.tmpdir)) == 2

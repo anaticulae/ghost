@@ -11,17 +11,17 @@ import os
 
 import utila
 
-from ghost.extract import images
-from ghost.optimize import small
-from ghost.parts import Part
-from ghost.parts import bounding_convert
-from ghost.parts import run
-from ghost.utils import pdfwrite
+from ughost.extract import images
+from ughost.optimize import small
+from ughost.parts import Part
+from ughost.parts import bounding_convert
+from ughost.parts import run
+from ughost.utils import pdfwrite
 
 __version__ = '0.9.1'
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-PROCESS = 'ghost'
+PROCESS = 'ughost'
 
 INSTALLED = utila.hasprog('gs') or utila.hasprog('gswin64c')
 HAS_GHOST = INSTALLED

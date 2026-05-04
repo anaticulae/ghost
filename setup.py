@@ -11,10 +11,10 @@
 import utila
 
 PACKAGES = [
-    'ghost',
+    'ughost',
 ]
 ENTRY_POINTS = dict(console_scripts=[
-    'ghost = ghost.cli:main',
+    'ughost = ughost.cli:main',
 ])
 
 if __name__ == "__main__":

@@ -10,11 +10,11 @@
 import pytest
 import utilatest
 
-import ghost
+import ughost
 
-run, fail = utilatest.create_cli_runner(ghost)
+run, fail = utilatest.create_cli_runner(ughost)
 
-ghostscript = pytest.mark.skipif(
-    not ghost.HAS_GHOST,
-    reason='install ghostscript',
+ughostscript = pytest.mark.skipif(
+    not ughost.HAS_GHOST,
+    reason='install ughostscript',
 )

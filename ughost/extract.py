@@ -14,7 +14,7 @@ import iamraw
 import PIL.Image
 import utila
 
-import ghost
+import ughost
 
 DPI = 72
 RENDERER = 300
@@ -23,7 +23,7 @@ RENDERER = 300
 def images(source: str, boundings: iamraw.ImageInformations, dpi=DPI) -> list:
     # ensure that bounding box matches with correct page
     pages = sorted(set(item.page for item in boundings))
-    root = ghost.pdfwrite(source, dpi=RENDERER, pages=pages)
+    root = ughost.pdfwrite(source, dpi=RENDERER, pages=pages)
     pagenr = {page: index for index, page in enumerate(pages, start=1)}
     loaded = [
         load_image(

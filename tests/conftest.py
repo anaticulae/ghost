@@ -12,9 +12,9 @@ import utilatest
 from utilatest import mp  # pylint:disable=W0611
 from utilatest import td  # pylint:disable=W0611
 
-import ghost
+import ughost
 
 pytest_plugins = ['pytester', 'xdist']  # pylint: disable=invalid-name
 
-if not utila.hasprog(ghost.PROCESS):
+if not utila.hasprog(ughost.PROCESS):
     utilatest.install_package(utila.baw_root(__file__))

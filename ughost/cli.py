@@ -11,7 +11,7 @@ import pdfinfo
 import utila
 import utila.cli
 
-import ghost
+import ughost
 
 DESCRIPTION = ''
 CONFIG = utila.ParserConfiguration(
@@ -48,8 +48,8 @@ def eval_cli():
                 args=dict(default=DPI),
             )
         ],
-        prog=ghost.PROCESS,
-        version=ghost.__version__,
+        prog=ughost.PROCESS,
+        version=ughost.__version__,
     )
     args = utila.parse(parser)
     inpath, outpath = utila.sources(args, singleinput=True)  # pylint:disable=W0632
@@ -65,7 +65,7 @@ def eval_cli():
 
 
 def write_images(inpath, outpath, dpi: float, pages: tuple = None):
-    root = ghost.pdfwrite(
+    root = ughost.pdfwrite(
         source=inpath,
         dpi=dpi,
         pages=pages,

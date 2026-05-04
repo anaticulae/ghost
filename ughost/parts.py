@@ -15,8 +15,8 @@ import PIL.ImageChops
 import PIL.ImageDraw
 import utila
 
-import ghost
-import ghost.cli
+import ughost
+import ughost.cli
 
 
 @dataclasses.dataclass
@@ -57,7 +57,7 @@ def run(src: str, dst: str, boundings: list) -> list:
 DPI_PDF = 72.0
 
 
-def bounding_convert(pdf: tuple, dpi: int = ghost.cli.DPI) -> tuple:
+def bounding_convert(pdf: tuple, dpi: int = ughost.cli.DPI) -> tuple:
     """\
     >>> bounding_convert((120, 120, 520, 520))
     (360.0, 360.0, 1560.0, 1560.0)
@@ -86,11 +86,11 @@ def parts(source: str, boundings: list) -> list:
 
 
 def extract(source, boundings: list) -> dict:
-    workdir = utila.tmpdir(root=ghost.ROOT)
+    workdir = utila.tmpdir(root=ughost.ROOT)
     pages = set(item[0] for item in boundings)
     pages = sorted(pages)
     pagesraw: str = ','.join(str(item) for item in pages)
-    cmd = f'{ghost.PROCESS} -i {source} -o {workdir} --pages={pagesraw}'
+    cmd = f'{ughost.PROCESS} -i {source} -o {workdir} --pages={pagesraw}'
     utila.run(cmd)
     files = utila.file_list(
         workdir,

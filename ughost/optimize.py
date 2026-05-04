@@ -9,17 +9,17 @@
 """Optimize PDF
 ============
 
-Use GhostScript to optimize pdf file.
+Use ughostScript to optimize pdf file.
 """
 
 import utila
 
-import ghost.utils
+import ughost.utils
 
 
 def small(source: str, destination: str, pages: tuple = None):
-    pages = ghost.utils.gpages_fromtuple(pages)
+    pages = ughost.utils.gpages_fromtuple(pages)
     config = '-sDEVICE=pdfwrite -dBATCH -dNOPAUSE -SAFE'
     source = f'"{source}"'
-    cmd = f'{ghost.utils.GHOST} {config} {pages} -sOutputFile={destination} {source}'
+    cmd = f'{ughost.utils.ughost} {config} {pages} -sOutputFile={destination} {source}'
     utila.run(cmd)

@@ -12,15 +12,15 @@ import os
 import pdfinfo
 import power
 
-import ghost
 import tests
+import ughost
 
 
-@tests.ghostscript
+@tests.ughostscript
 def test_optimize_small(td):
     """Shrink pdf to given number of pages."""
     source = power.PAPER06B_PDF
     outpath = os.path.join(td.tmpdir, 'optimo.pdf')
-    ghost.small(source, outpath, pages=(3, 4))
+    ughost.small(source, outpath, pages=(3, 4))
     pages = pdfinfo.pagecount(outpath)
     assert pages == 2

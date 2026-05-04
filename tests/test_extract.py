@@ -14,11 +14,11 @@ import power
 import utila
 import utilatest
 
-import ghost
 import tests
+import ughost
 
 
-@tests.ghostscript
+@tests.ughostscript
 def test_images(td):
     boundings = [
         iamraw.ImageInformation(
@@ -26,7 +26,7 @@ def test_images(td):
             bounding=(250, 250, 1000, 1000),
         ),
     ]
-    loaded = ghost.images(
+    loaded = ughost.images(
         source=power.BACHELOR051_PDF,
         boundings=boundings,
     )
