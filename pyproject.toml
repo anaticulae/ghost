@@ -36,6 +36,9 @@ dev = [
 Homepage = "https://github.com/anaticulae/ughost"
 Repository = "https://github.com/anaticulae/ughost"
 
+[project.scripts]
+ughost = "ughost.cli:main"
+
 [build-system]
 requires = [
     "setuptools>=82.0.1",
