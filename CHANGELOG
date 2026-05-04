@@ -1,154 +1,473 @@
-# Changelog
+# CHANGELOG
 
-Every noteable change is logged here.
+
+## v1.0.0 (2026-05-04)
+
+### Chores
+
+- **ci**: Remove outdated jenkins file
+  ([`867bfaa`](https://github.com/anaticulae/ghost/commit/867bfaa991b951ffa4fcdce5129b8a498ea868df))
+
+- **docker**: Add docker ignore
+  ([`00f468a`](https://github.com/anaticulae/ghost/commit/00f468aad309c1fe2f109f0ff99545314e1bcdf9))
+
+- **docker**: Add Dockerfile
+  ([`88c0efa`](https://github.com/anaticulae/ghost/commit/88c0efa32b2caa5ce717c913c25380324b0376d7))
+
+- **fix**: Adjust package names
+  ([`33d6b15`](https://github.com/anaticulae/ghost/commit/33d6b15032486436e540ba3d58e9ae21c9e7d66b))
+
+- **github**: Add workflow
+  ([`ebb5656`](https://github.com/anaticulae/ghost/commit/ebb5656d044e6b9217d74bff54b6a5cd9c7743bd))
+
+- **make**: Add Makefile
+  ([`d93c15f`](https://github.com/anaticulae/ghost/commit/d93c15f82ce6ecbeb2c27d53abf303b1775010b4))
+
+- **pyproject**: Add modern setup approach
+  ([`6b423bd`](https://github.com/anaticulae/ghost/commit/6b423bd5b8f7a1933089cc294e722b7359f420d3))
+
+- **pyproject**: Move cli definition
+  ([`c099c13`](https://github.com/anaticulae/ghost/commit/c099c13e2a6ac5e1ecb2e58e3af320904740a1c1))
+
+- **requirements**: Remove outdated files
+  ([`3386a94`](https://github.com/anaticulae/ghost/commit/3386a94210a62743f823cc3d8b86faf111ba3e96))
+
+### Refactoring
+
+- **linter**: Solve linter warnings
+  ([`f8aa7cc`](https://github.com/anaticulae/ghost/commit/f8aa7cc8542434c533a55b346c016a682679c432))
+
+- **markdown**: Adjust file names
+  ([`e7200a3`](https://github.com/anaticulae/ghost/commit/e7200a391c3d1680f8e44bf09401696388f1a86e))
+
+- **rename**: Rename project
+  ([`7eb9d26`](https://github.com/anaticulae/ghost/commit/7eb9d267319747235e56c571faabb54163eec2db))
+
+### Testing
+
+- **fix**: Adjust unit test
+  ([`55ad6dc`](https://github.com/anaticulae/ghost/commit/55ad6dc1c2c01ea2a66882395ca616089cbf159a))
+
 
 ## v0.9.1 (2023-01-01)
 
+### Chores
+
+- **baw**: Remove default case
+  ([`dcf224a`](https://github.com/anaticulae/ghost/commit/dcf224a459d65c8a29e55d24ae6782d20720c609))
+
+- **Jenkins**: Upgrade environment
+  ([`99c8ad8`](https://github.com/anaticulae/ghost/commit/99c8ad8bc259947f85505dd640ab740cd8930471))
+
+- **Jenkins**: Upgrade pipeline
+  ([`5f1331c`](https://github.com/anaticulae/ghost/commit/5f1331c27686d65f4a439b929a368d5c9b81baf9))
+
+- **requirements**: Upgrade requirements.txt
+  ([`cb51571`](https://github.com/anaticulae/ghost/commit/cb51571bfc0cfe310f3383009bbc02966f49f423))
+
+- **requirements**: Upgrade requirements.txt
+  ([`4949f96`](https://github.com/anaticulae/ghost/commit/4949f96e292a544a4fb6ea2b7a99673df2f10b05))
+
+- **setup**: Use quick install
+  ([`b68f48e`](https://github.com/anaticulae/ghost/commit/b68f48e786ed9117634e1e35ac6d888196c8693a))
+
+- **test**: Ensure that ghost is installed
+  ([`6e540d0`](https://github.com/anaticulae/ghost/commit/6e540d07a638fd5f84aa4e5f9e22291088527bde))
+
+### Code Style
+
+- **config**: Add missing header
+  ([`3643818`](https://github.com/anaticulae/ghost/commit/36438186d15d838c7d919728e6706fddc1c53848))
+
 ### Documentation
 
-* happy New Year! (7d87ee799c46)
+- **copyright**: Happy New Year!
+  ([`7d87ee7`](https://github.com/anaticulae/ghost/commit/7d87ee799c4600587b98d0fc2972a9d55a1d72b2))
 
-### Chore
+### Refactoring
 
-* ensure that ghost is installed (6e540d07a638)
-* upgrade requirements.txt (cb51571bfc0c)
-* use quick install (b68f48e786ed)
-* upgrade pipeline (5f1331c27686)
-* remove default case (dcf224a459d6)
-* upgrade requirements.txt (4949f96e292a)
-* upgrade environment (99c8ad8bc259)
+- **cli**: Sorting is not required anymore
+  ([`1603bbd`](https://github.com/anaticulae/ghost/commit/1603bbd0e3eae1bf7188b787d145daa83160888e))
+
 
 ## v0.9.0 (2022-10-15)
 
-### Feature
+### Chores
 
-* add installed token (8388b1673734)
+- **Jenkins**: Convert nightly to all
+  ([`4f4c473`](https://github.com/anaticulae/ghost/commit/4f4c473988e42056df82585e189acf28c950f5e3))
 
-### Documentation
+- **Jenkins**: Do not run in privileged mode
+  ([`eedc12c`](https://github.com/anaticulae/ghost/commit/eedc12c269de4522f408491041de522a9adf6537))
 
-* add mini docks (8a374d8f5bd0)
+- **Jenkins**: Ensure that ghost is installed
+  ([`8335d79`](https://github.com/anaticulae/ghost/commit/8335d795e0af5d43366c9ae111bd2e35da6157e0))
 
-### Chore
+- **Jenkins**: Use ghost container
+  ([`78a0432`](https://github.com/anaticulae/ghost/commit/78a0432a826a0b8ffb05e1f654d35907fa3393c9))
 
-* ensure that ghost is installed (8335d795e0af)
-* convert nightly to all (4f4c473988e4)
-* use ghost container (78a0432a826a)
-* upgrade requirements.txt (9c473037a39e)
-* do not run in privileged mode (eedc12c269de)
+- **requirements**: Upgrade requirements.txt
+  ([`9c47303`](https://github.com/anaticulae/ghost/commit/9c473037a39e338ca4e60a373429ca4609fd2fb6))
 
-## v0.7.1
+### Code Style
 
-## v0.7.0
-
-### Feature
-
-* support multiple rectangles (31683c94a1d5)
-
-## v0.6.2
-
-### Fix
-
-* add missing process name (51dd98b167ce)
-
-## v0.6.1
-
-### Fix
-
-* do not fail on running twice (ce3763fb3956)
-
-## v0.6.0
-
-### Feature
-
-* add method to convert from pdf to render bounding (8acb5d5b4f05)
-* extend public API (525e09784ba7)
-* add run method to run on complete document (8c7ba967bcba)
-* add parameter to render different color (bc77386d18b1)
-* add name to distinguish output (af8fde03c0a3)
-* add method to extract parts of pdf (52fb6f91fdf4)
+- **changelog**: Adjust automation tool
+  ([`87c4a1e`](https://github.com/anaticulae/ghost/commit/87c4a1e30dc8758f83450e8179d05e570fbbb40a))
 
 ### Documentation
 
-* extend interface documentation (6a45831fad69)
+- **readme**: Add mini docks
+  ([`8a374d8`](https://github.com/anaticulae/ghost/commit/8a374d8f5bd064179b35fec14727583709660d61))
 
-## v0.5.0
+### Features
 
-### Feature
+- **API**: Add installed token
+  ([`8388b16`](https://github.com/anaticulae/ghost/commit/8388b1673734caff5ebbdee1f0e14dfb3d1aa197))
 
-* add dpi parameter to configure renderer (e0ce5be4efd0)
+### Refactoring
 
-## v0.4.0
+- **utils**: Replace with utila code
+  ([`70f0deb`](https://github.com/anaticulae/ghost/commit/70f0deb1b18c43eed8c4bd82922a300123b95330))
 
-### Feature
+### Testing
 
-* generate pngs (a6c670f68903)
-* add ghost runner (2e50b5e87f56)
+- **adjust**: Adjust run with other ghost version
+  ([`0480737`](https://github.com/anaticulae/ghost/commit/048073778296b57963878e6d4f441a90ba31e36f))
 
-## v0.3.3
+
+## v0.8.0 (2022-09-25)
+
+### Bug Fixes
+
+- **utils**: Enable using linux
+  ([`06ae776`](https://github.com/anaticulae/ghost/commit/06ae776d706891418b3ba5b6c812be7ce58a3168))
+
+### Chores
+
+- **ci**: Add Jenkinsfile
+  ([`cb257c6`](https://github.com/anaticulae/ghost/commit/cb257c6968c373b2115472fe02c8f8686477e90c))
+
+- **requirements**: Make PIL less restrict
+  ([`edfffa8`](https://github.com/anaticulae/ghost/commit/edfffa8d12422c3c7fe408a1d25124efebfa4e58))
+
+- **requirements**: Upgrade requirements.txt
+  ([`c9f41fb`](https://github.com/anaticulae/ghost/commit/c9f41fb06eaef3c229e5cadff4d82b743d603768))
+
+### Features
+
+- **utils**: Convert ghost installed checker
+  ([`083d20b`](https://github.com/anaticulae/ghost/commit/083d20b75a5a83561013eea23c72e5109977ba55))
+
+### Testing
+
+- **cli**: Skip test without ghostscript
+  ([`e2f0cbb`](https://github.com/anaticulae/ghost/commit/e2f0cbb8a0bac96dc89fe880af3e47c3aedcd35a))
+
+- **convert**: Convert to new test fixtures
+  ([`2d155f1`](https://github.com/anaticulae/ghost/commit/2d155f159f2eb1aadca31540e8a33b55e47d9167))
+
+- **ghost**: Skip tests if ghostscript is not installed
+  ([`3c17b1b`](https://github.com/anaticulae/ghost/commit/3c17b1ba64761145ba74b21fd1423ccbd907c6d0))
+
+
+## v0.7.1 (2022-08-01)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`6875e23`](https://github.com/anaticulae/ghost/commit/6875e23b3a9073741e6a7dbe3f836e5ff7b95dea))
+
+- **requirements**: Use specialized pdfinfo package
+  ([`de363f2`](https://github.com/anaticulae/ghost/commit/de363f2e96be5dc2b2c986b885973715a436ed69))
+
+### Refactoring
+
+- **API**: Adjust API
+  ([`22cc566`](https://github.com/anaticulae/ghost/commit/22cc5663b6705dd701bcdaee91534eb4758ae028))
+
+
+## v0.7.0 (2022-06-23)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`916dc16`](https://github.com/anaticulae/ghost/commit/916dc16eccd9d5e8048f5fb64c1c741f8f7ddffa))
+
+### Features
+
+- **parts**: Support multiple rectangles
+  ([`31683c9`](https://github.com/anaticulae/ghost/commit/31683c94a1d51b8aa345151a7bc063186e34d3b7))
+
+### Testing
+
+- **parts**: Increase test coverage
+  ([`df12c92`](https://github.com/anaticulae/ghost/commit/df12c9250dc0bc02197be9eac1733008001876cd))
+
+
+## v0.6.2 (2022-06-15)
+
+### Bug Fixes
+
+- **cli**: Add missing process name
+  ([`51dd98b`](https://github.com/anaticulae/ghost/commit/51dd98b167ce4c4034ed25a9688a429b402f6b05))
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`9437d95`](https://github.com/anaticulae/ghost/commit/9437d954fa7f179abbfb79aca2eeec6259a91d2e))
+
+
+## v0.6.1 (2022-05-22)
+
+### Bug Fixes
+
+- **parts**: Do not fail on running twice
+  ([`ce3763f`](https://github.com/anaticulae/ghost/commit/ce3763fb395687bcdb8643b6a6f66c639f31a530))
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`0c7be11`](https://github.com/anaticulae/ghost/commit/0c7be117de175b78aa011aabf9e995f27545789b))
+
+
+## v0.6.0 (2022-05-21)
+
+### Chores
+
+- **requirements**: Add painter
+  ([`ca49aa8`](https://github.com/anaticulae/ghost/commit/ca49aa89920c850c24d7522f6c962737efcda6bc))
 
 ### Documentation
 
-* Happy New Year! (15098e441d89)
-* adjust modules path (fd35778f917e)
+- **cli**: Extend interface documentation
+  ([`6a45831`](https://github.com/anaticulae/ghost/commit/6a45831fad69835ada3ec7415ba08ec42a117ada))
 
-## v0.3.2
+### Features
 
-### Fix
+- **API**: Extend public API
+  ([`525e097`](https://github.com/anaticulae/ghost/commit/525e09784ba72a5ccfc707ae3e3278ebb5e5df99))
 
-* escape path to handle file names with spaces (f18481573bab)
+- **parts**: Add method to convert from pdf to render bounding
+  ([`8acb5d5`](https://github.com/anaticulae/ghost/commit/8acb5d5b4f05a5a40737976e2030cc7bc4366330))
 
-## v0.3.1
+- **parts**: Add method to extract parts of pdf
+  ([`52fb6f9`](https://github.com/anaticulae/ghost/commit/52fb6f91fdf4be0e48876ebf9c4162c65b035b13))
 
-### Feature
+- **parts**: Add name to distinguish output
+  ([`af8fde0`](https://github.com/anaticulae/ghost/commit/af8fde03c0a38a6da7f55a151a46c38e729a8497))
 
-* add option to change pdf output folder (96fcad3a4bc7)
+- **parts**: Add parameter to render different color
+  ([`bc77386`](https://github.com/anaticulae/ghost/commit/bc77386d18b1a072c2b55935859ad3d72515ab4c))
 
-## v0.3.0
+- **parts**: Add run method to run on complete document
+  ([`8c7ba96`](https://github.com/anaticulae/ghost/commit/8c7ba967bcbab791c087ce2aa91d4faf8f670ead))
 
-### Feature
+### Refactoring
 
-* add method to reduce size of pdf file (f66471ddc6e4)
+- **cli**: Move to const
+  ([`7dcca7e`](https://github.com/anaticulae/ghost/commit/7dcca7e6a6e540a88eb853abb89721e89afbebe7))
 
-## v0.2.3
+### Testing
 
-### Fix
+- **parts**: Show rendered result
+  ([`0d944bb`](https://github.com/anaticulae/ghost/commit/0d944bbf359e8d730d452a3885a29110c0795d8d))
 
-* extend interface to handle int as page number (86565c7527f9)
 
-## v0.2.2
+## v0.5.0 (2022-05-21)
 
-### Fix
+### Features
 
-* ensure bounding box page matching (6d9dc1331c32)
+- **cli**: Add dpi parameter to configure renderer
+  ([`e0ce5be`](https://github.com/anaticulae/ghost/commit/e0ce5be4efd0c16a097aaae19d15b6784d670a8b))
 
-## v0.2.1
 
-## v0.2.0
+## v0.4.0 (2022-05-21)
 
-### Feature
+### Chores
 
-* scale bounding (05178e2cf158)
-* use improved renderer (fb3103f87bc2)
+- **requirements**: Add rawmaker
+  ([`b23404a`](https://github.com/anaticulae/ghost/commit/b23404ae431dd8a363cec505bd6f91488795220f))
 
-### Fix
+### Features
 
-* ghost requires sorted page numbers (2f6c7b11333a)
+- **cli**: Add ghost runner
+  ([`2e50b5e`](https://github.com/anaticulae/ghost/commit/2e50b5e87f568a7ea048eb435dba691b2d1e59c5))
 
-## v0.1.1
+- **cli**: Generate pngs
+  ([`a6c670f`](https://github.com/anaticulae/ghost/commit/a6c670f68903a5a3799a749827706d78ab272557))
 
-### Fix
+### Refactoring
 
-* ensure that pdf number is converted correctly (113d5779d8ed)
+- **cli**: Reduce complexity
+  ([`2371ec8`](https://github.com/anaticulae/ghost/commit/2371ec8b6341634600e569cb1891381ff6288c3b))
 
-## v0.1.0
 
-### Feature
+## v0.3.3 (2022-05-21)
 
-* add method to extract images from pdf (b0c38ad1383b)
-* add method to convert pdf to pngs (8c226ee689c8)
+### Chores
+
+- **config**: Move project config
+  ([`27e2167`](https://github.com/anaticulae/ghost/commit/27e216751ccb0a81e888e64ece22b0fa02c2ea04))
+
+- **requirements**: Upgrade requirements.txt
+  ([`0330a07`](https://github.com/anaticulae/ghost/commit/0330a07682667c95651d02f1027163b6afb490aa))
 
 ### Documentation
 
-* document optimize capabilities (9edac1cc5d41)
+- **copyright**: Happy New Year!
+  ([`15098e4`](https://github.com/anaticulae/ghost/commit/15098e441d89c6113be0656a6f6aa5a5ccb23495))
 
-## v0.0.0 Initial release
+- **fix**: Adjust modules path
+  ([`fd35778`](https://github.com/anaticulae/ghost/commit/fd35778f917e1af009de8bc80ddb6c8a39f10d94))
+
+### Testing
+
+- **refactor**: Adjust interface
+  ([`374d213`](https://github.com/anaticulae/ghost/commit/374d213728103f79979bf9801b06100b50116613))
+
+
+## v0.3.2 (2021-12-14)
+
+### Bug Fixes
+
+- **path**: Escape path to handle file names with spaces
+  ([`f184815`](https://github.com/anaticulae/ghost/commit/f18481573bab18a2419ccc1ca52bf875259c12e8))
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`3edeee4`](https://github.com/anaticulae/ghost/commit/3edeee4b2e907d511d42949427ad0598f1559d0b))
+
+### Testing
+
+- **pdf**: Ensure to extract pdf with spaces correctly
+  ([`5460186`](https://github.com/anaticulae/ghost/commit/54601869c511e91a8a97b3ee5410e88e4d115a70))
+
+
+## v0.3.1 (2021-09-19)
+
+### Features
+
+- **utils**: Add option to change pdf output folder
+  ([`96fcad3`](https://github.com/anaticulae/ghost/commit/96fcad3a4bc74c1bb53f9c532193a9061649ece6))
+
+
+## v0.3.0 (2021-09-05)
+
+### Chores
+
+- **dev**: Add rawmaker package
+  ([`e24b920`](https://github.com/anaticulae/ghost/commit/e24b920c32cf779e153a36858d855fe356fecb54))
+
+### Features
+
+- **optimize**: Add method to reduce size of pdf file
+  ([`f66471d`](https://github.com/anaticulae/ghost/commit/f66471ddc6e41df39159ad4cd9a4d271cca29443))
+
+### Refactoring
+
+- **utils**: Move page converter to separate page
+  ([`266dfd6`](https://github.com/anaticulae/ghost/commit/266dfd680a504f71bc0e440f64ba2b3e177ee220))
+
+
+## v0.2.3 (2021-08-28)
+
+### Bug Fixes
+
+- **utils**: Extend interface to handle int as page number
+  ([`86565c7`](https://github.com/anaticulae/ghost/commit/86565c7527f9a32fc380fd96924c9b9218acfe20))
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`9cac4cd`](https://github.com/anaticulae/ghost/commit/9cac4cdaae3da79f7ed08da4d1a724ddf1141b6f))
+
+
+## v0.2.2 (2021-08-02)
+
+### Bug Fixes
+
+- **extract**: Ensure bounding box page matching
+  ([`6d9dc13`](https://github.com/anaticulae/ghost/commit/6d9dc1331c32b70b4972ab24ab0927a941ba8563))
+
+
+## v0.2.1 (2021-07-31)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`8d6ed55`](https://github.com/anaticulae/ghost/commit/8d6ed5519e6f2f1a1370cc64ac56fc26b7dbb380))
+
+### Refactoring
+
+- **replace**: Replace with utila code
+  ([`b618cf3`](https://github.com/anaticulae/ghost/commit/b618cf35ac5d2d114bc027c9d41d99306c8c5d67))
+
+
+## v0.2.0 (2021-07-31)
+
+### Bug Fixes
+
+- **utils**: Ghost requires sorted page numbers
+  ([`2f6c7b1`](https://github.com/anaticulae/ghost/commit/2f6c7b11333a3ef6b855ac7efcb3276f8955fbfe))
+
+### Features
+
+- **extract**: Scale bounding
+  ([`05178e2`](https://github.com/anaticulae/ghost/commit/05178e2cf15814928f601344c4e7a75193086d73))
+
+- **utils**: Use improved renderer
+  ([`fb3103f`](https://github.com/anaticulae/ghost/commit/fb3103f87bc2dea32b0ee330612444bd06df685d))
+
+### Refactoring
+
+- **extract**: Improve code order
+  ([`dc122f3`](https://github.com/anaticulae/ghost/commit/dc122f32c8c19d384b08c2df55c5816ef06642c2))
+
+
+## v0.1.1 (2021-07-31)
+
+### Bug Fixes
+
+- **extract**: Ensure that pdf number is converted correctly
+  ([`113d577`](https://github.com/anaticulae/ghost/commit/113d5779d8edfeb364e2208f0fc74c8c1a0c60fb))
+
+
+## v0.1.0 (2021-07-31)
+
+### Chores
+
+- **requirements**: Add iamraw, pillow
+  ([`31f4398`](https://github.com/anaticulae/ghost/commit/31f4398b5b1af26e2c9ef72f5c71abaa44929e51))
+
+- **requirements**: Add test, power package
+  ([`a868480`](https://github.com/anaticulae/ghost/commit/a86848016d655c83a4aff4b6f603c8cd9aa15206))
+
+- **requirements**: Add utila
+  ([`933ddc2`](https://github.com/anaticulae/ghost/commit/933ddc24d293aa202065e6db32a2656aedb8a9e2))
+
+- **requirements**: Upgrade requirements.txt
+  ([`c146ab1`](https://github.com/anaticulae/ghost/commit/c146ab1a156a545a176943f7a56b6d82b05d6c53))
+
+### Documentation
+
+- **optimize**: Document optimize capabilities
+  ([`9edac1c`](https://github.com/anaticulae/ghost/commit/9edac1cc5d41a6fbf065f09a81eb8bc2b65cda23))
+
+### Features
+
+- **extract**: Add method to extract images from pdf
+  ([`b0c38ad`](https://github.com/anaticulae/ghost/commit/b0c38ad1383b45c52e3d576efd7f4ad5dd3cbd51))
+
+- **utils**: Add method to convert pdf to pngs
+  ([`8c226ee`](https://github.com/anaticulae/ghost/commit/8c226ee689c888d10ffa190363f8a766513f3af6))
+
+### Refactoring
+
+- **utils**: Improve code style
+  ([`73adbab`](https://github.com/anaticulae/ghost/commit/73adbab2dabe1303a03f85c2b0d8082f0f32b401))
+
+
+## v0.0.0 (2021-07-30)
+
+- Initial Release
