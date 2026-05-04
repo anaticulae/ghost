@@ -42,7 +42,7 @@ ghost = "ughost.cli:main"
 [build-system]
 requires = [
     "setuptools>=82.0.1",
-    "wheel>=0.47.0"
+    "wheel>=0.47.0",
 ]
 build-backend = "setuptools.build_meta"
 
