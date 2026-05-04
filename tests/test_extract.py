@@ -35,4 +35,4 @@ def test_images(td):
     image = loaded[0]
     utilo.file_create_binary(png, content=image)
     # verify result
-    utilotest.assert_bin(image, (3555017284, 3680991176))
+    utilotest.assert_bin(image, (3555017284, 3680991176, 1320373311))

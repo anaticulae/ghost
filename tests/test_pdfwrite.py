@@ -39,8 +39,8 @@ def test_pdfwrite_pages():
         utilo.file_read_binary(os.path.join(path, item)) for item in extracted
     ]
     # verify that page number converting works
-    utilotest.assert_bin(loaded[0], (3201675645, 1609777475))
-    utilotest.assert_bin(loaded[1], (1204049905, 3839788996))
+    utilotest.assert_bin(loaded[0], (3201675645, 1609777475, 2024650708))
+    utilotest.assert_bin(loaded[1], (1204049905, 3839788996, 2476290319))
 
 
 @tests.ughostscript
