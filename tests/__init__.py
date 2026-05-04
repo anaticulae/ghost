@@ -8,11 +8,11 @@
 #==============================================================================
 
 import pytest
-import utilatest
+import utilotest
 
 import ughost
 
-run, fail = utilatest.create_cli_runner(ughost)
+run, fail = utilotest.create_cli_runner(ughost)
 
 ughostscript = pytest.mark.skipif(
     not ughost.HAS_GHOST,

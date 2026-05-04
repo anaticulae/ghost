@@ -13,7 +13,7 @@ import io
 import PIL.Image
 import PIL.ImageChops
 import PIL.ImageDraw
-import utila
+import utilo
 
 import ughost
 import ughost.cli
@@ -44,11 +44,11 @@ def run(src: str, dst: str, boundings: list) -> list:
     for image, bounding in zip(extracted, boundings):
         name = bounding.name
         if name is None:
-            name = utila.tmpname()
-        outpath = utila.join(dst, f'{name}.png')
-        utila.debug(outpath)
+            name = utilo.tmpname()
+        outpath = utilo.join(dst, f'{name}.png')
+        utilo.debug(outpath)
         # TODO: SECURITY: BEFORE RELASE: USE PRIVATE LATER
-        utila.file_replace_binary(outpath, content=image)
+        utilo.file_replace_binary(outpath, content=image)
         result.append(outpath)
     return result
 
@@ -63,7 +63,7 @@ def bounding_convert(pdf: tuple, dpi: int = ughost.cli.DPI) -> tuple:
     (360.0, 360.0, 1560.0, 1560.0)
     """
     assert dpi and DPI_PDF, f'invalid dpi: {dpi}, {DPI_PDF}'
-    result = utila.tuple_mult(
+    result = utilo.tuple_mult(
         pdf,
         value=dpi / DPI_PDF,
     )
@@ -86,13 +86,13 @@ def parts(source: str, boundings: list) -> list:
 
 
 def extract(source, boundings: list) -> dict:
-    workdir = utila.tmpdir(root=ughost.ROOT)
+    workdir = utilo.tmpdir(root=ughost.ROOT)
     pages = set(item[0] for item in boundings)
     pages = sorted(pages)
     pagesraw: str = ','.join(str(item) for item in pages)
     cmd = f'{ughost.PROCESS} -i {source} -o {workdir} --pages={pagesraw}'
-    utila.run(cmd)
-    files = utila.file_list(
+    utilo.run(cmd)
+    files = utilo.file_list(
         workdir,
         absolute=True,
     )

@@ -7,14 +7,14 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import pdfinfo
-import utila
-import utila.cli
+import pdflog
+import utilo
+import utilo.cli
 
 import ughost
 
 DESCRIPTION = ''
-CONFIG = utila.ParserConfiguration(
+CONFIG = utilo.ParserConfiguration(
     inputparameter=True,
     outputparameter=True,
     prefix=False,
@@ -25,7 +25,7 @@ CONFIG = utila.ParserConfiguration(
 DPI = 216.0
 
 
-@utila.saveme
+@utilo.saveme
 def main():
     inpath, outpath, dpi, pages = eval_cli()
     write_images(
@@ -34,15 +34,15 @@ def main():
         dpi=dpi,
         pages=pages,
     )
-    return utila.SUCCESS
+    return utilo.SUCCESS
 
 
 def eval_cli():
-    parser = utila.cli.create_parser(
+    parser = utilo.cli.create_parser(
         config=CONFIG,
         description=DESCRIPTION,
         todo=[
-            utila.Parameter(
+            utilo.Parameter(
                 longcut='dpi',
                 message='use 216 as default',
                 args=dict(default=DPI),
@@ -51,8 +51,8 @@ def eval_cli():
         prog=ughost.PROCESS,
         version=ughost.__version__,
     )
-    args = utila.parse(parser)
-    inpath, outpath = utila.sources(args, singleinput=True)  # pylint:disable=W0632
+    args = utilo.parse(parser)
+    inpath, outpath = utilo.sources(args, singleinput=True)  # pylint:disable=W0632
     # It is only single path supported. Run program multiple times if more
     # than one analysis is required.
     inpath = inpath[0]
@@ -70,19 +70,19 @@ def write_images(inpath, outpath, dpi: float, pages: tuple = None):
         dpi=dpi,
         pages=pages,
     )
-    written = utila.file_list(root, include='png', absolute=True)
+    written = utilo.file_list(root, include='png', absolute=True)
     for path, filename in zip(written, pages):
         filename = f'{str(filename).zfill(3)}.png'
-        dst = utila.join(outpath, filename)
-        utila.debug(f'write {dst}')
-        utila.file_copy(path, dst=dst)
+        dst = utilo.join(outpath, filename)
+        utilo.debug(f'write {dst}')
+        utilo.file_copy(path, dst=dst)
 
 
 def parse_pages(pages: tuple, inpath: str) -> tuple:
-    pagecount = pdfinfo.pagecount(inpath)
+    pagecount = pdflog.pagecount(inpath)
     if not pages:
-        return utila.rtuple(pagecount)
-    pages = utila.parse_pages(
+        return utilo.rtuple(pagecount)
+    pages = utilo.parse_pages(
         pages[0],
         pagecount=pagecount,
     )

@@ -9,8 +9,8 @@
 
 import os
 
-import pdfinfo
-import power
+import hoverpower
+import pdflog
 
 import tests
 import ughost
@@ -19,8 +19,8 @@ import ughost
 @tests.ughostscript
 def test_optimize_small(td):
     """Shrink pdf to given number of pages."""
-    source = power.PAPER06B_PDF
+    source = hoverpower.PAPER06B_PDF
     outpath = os.path.join(td.tmpdir, 'optimo.pdf')
     ughost.small(source, outpath, pages=(3, 4))
-    pages = pdfinfo.pagecount(outpath)
+    pages = pdflog.pagecount(outpath)
     assert pages == 2

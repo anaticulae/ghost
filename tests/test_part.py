@@ -7,8 +7,8 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import painter
-import power
+import hoverpower
+import upainter
 
 import tests
 import ughost.parts
@@ -16,7 +16,7 @@ import ughost.parts
 
 @tests.ughostscript
 def test_parts(td):  # pylint:disable=W0613
-    source = power.BACHELOR028_PDF
+    source = hoverpower.BACHELOR028_PDF
     boundings = [
         ughost.parts.Part(
             page=0,
@@ -28,12 +28,12 @@ def test_parts(td):  # pylint:disable=W0613
         boundings=boundings,
     )
     assert len(extracted) == 1
-    painter.show_figure(extracted[0])
+    upainter.show_figure(extracted[0])
 
 
 @tests.ughostscript
 def test_run_extractor(td):
-    source = power.BACHELOR028_PDF
+    source = hoverpower.BACHELOR028_PDF
     boundings = [
         ughost.parts.Part(
             page=0,

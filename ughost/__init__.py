@@ -9,7 +9,7 @@
 
 import os
 
-import utila
+import utilo
 
 from ughost.extract import images
 from ughost.optimize import small
@@ -23,5 +23,5 @@ __version__ = '0.9.1'
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 PROCESS = 'ughost'
 
-INSTALLED = utila.hasprog('gs') or utila.hasprog('gswin64c')
+INSTALLED = utilo.hasprog('gs') or utilo.hasprog('gswin64c')
 HAS_GHOST = INSTALLED

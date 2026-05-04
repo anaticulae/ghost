@@ -9,11 +9,11 @@
 
 import os
 
-import utila
+import utilo
 
 import ughost
 
-ughost = 'gswin64c' if utila.iswin() else 'gs'
+ghost = 'gswin64c' if utilo.iswin() else 'gs'
 
 
 def pdfwrite(
@@ -23,7 +23,7 @@ def pdfwrite(
     root: str = None,
     pages: tuple = None,
 ):
-    root = utila.tmpdir(root=ughost.ROOT) if root is None else root
+    root = utilo.tmpdir(root=ughost.ROOT) if root is None else root
     if isinstance(pages, int):  # pylint:disable=W0160
         destination = os.path.join(root, f'{pages}.png')
     else:
@@ -31,8 +31,8 @@ def pdfwrite(
     pages = gpages_fromtuple(pages)
     config = f'-sDEVICE={formats} -r{dpi} -dBATCH -dNOPAUSE -SAFE'
     source = f'"{source}"'
-    cmd = f'{ughost} {config} {pages} -sOutputFile={destination} {source}'
-    utila.run(cmd)
+    cmd = f'{ghost} {config} {pages} -sOutputFile={destination} {source}'
+    utilo.run(cmd)
     return root
 
 
@@ -50,7 +50,7 @@ def gpages_fromtuple(pages: tuple = None) -> str:
     # ughost requires sorted page numbers
     pages = sorted(pages)
     # -sPageList=1,3,5
-    pages = utila.tuple_plus(pages, value=1)
-    pages: str = utila.from_tuple(pages, separator=',')
+    pages = utilo.tuple_plus(pages, value=1)
+    pages: str = utilo.from_tuple(pages, separator=',')
     pages = f'-sPageList={pages}'
     return pages

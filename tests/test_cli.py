@@ -7,9 +7,9 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import power
-import utila
-import utilatest
+import hoverpower
+import utilo
+import utilotest
 
 import tests
 
@@ -21,15 +21,15 @@ def test_help(mp):
 @tests.ughostscript
 def test_run(td, mp):
     outpath = td.tmpdir
-    cmd = f'-i {power.TECH019_PDF} -o {outpath} --pages=3:8,12:15'
+    cmd = f'-i {hoverpower.TECH019_PDF} -o {outpath} --pages=3:8,12:15'
     tests.run(cmd, mp=mp)
-    assert utila.file_count(outpath) == 8
+    assert utilo.file_count(outpath) == 8
 
 
 @tests.ughostscript
-@utilatest.longrun
+@utilotest.longrun
 def test_all(td, mp):
     outpath = td.tmpdir
-    cmd = f'-i {power.BACHELOR032_PDF} -o {outpath}'
+    cmd = f'-i {hoverpower.BACHELOR032_PDF} -o {outpath}'
     tests.run(cmd, mp=mp)
-    assert utila.file_count(outpath) == 32
+    assert utilo.file_count(outpath) == 32

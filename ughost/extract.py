@@ -12,7 +12,7 @@ import os
 
 import iamraw
 import PIL.Image
-import utila
+import utilo
 
 import ughost
 
@@ -39,7 +39,7 @@ def load_image(bounding: iamraw.ImageInformation, path: str, dpi=DPI) -> bytes:
     raw = io.BytesIO()
     with PIL.Image.open(path, formats=('png',)) as loaded:
         # left, upper, right, lower
-        bounding = utila.tuple_mult(
+        bounding = utilo.tuple_mult(
             bounding.bounding,
             value=RENDERER / dpi,
         )

@@ -9,10 +9,10 @@
 
 import os
 
+import hoverpower
 import iamraw
-import power
-import utila
-import utilatest
+import utilo
+import utilotest
 
 import tests
 import ughost
@@ -27,12 +27,12 @@ def test_images(td):
         ),
     ]
     loaded = ughost.images(
-        source=power.BACHELOR051_PDF,
+        source=hoverpower.BACHELOR051_PDF,
         boundings=boundings,
     )
     assert len(loaded) == 1
     png = os.path.join(td.tmpdir, 'test.png')
     image = loaded[0]
-    utila.file_create_binary(png, content=image)
+    utilo.file_create_binary(png, content=image)
     # verify result
-    utilatest.assert_bin(image, (3555017284, 3680991176))
+    utilotest.assert_bin(image, (3555017284, 3680991176))
