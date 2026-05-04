@@ -13,7 +13,7 @@ import utilo
 
 import ughost
 
-ghost = 'gswin64c' if utilo.iswin() else 'gs'
+GHOST = 'gswin64c' if utilo.iswin() else 'gs'
 
 
 def pdfwrite(
@@ -31,7 +31,7 @@ def pdfwrite(
     pages = gpages_fromtuple(pages)
     config = f'-sDEVICE={formats} -r{dpi} -dBATCH -dNOPAUSE -SAFE'
     source = f'"{source}"'
-    cmd = f'{ghost} {config} {pages} -sOutputFile={destination} {source}'
+    cmd = f'{GHOST} {config} {pages} -sOutputFile={destination} {source}'
     utilo.run(cmd)
     return root
 
@@ -52,5 +52,5 @@ def gpages_fromtuple(pages: tuple = None) -> str:
     # -sPageList=1,3,5
     pages = utilo.tuple_plus(pages, value=1)
     pages: str = utilo.from_tuple(pages, separator=',')
-    pages = f'-sPageList={pages}'
+    pages: str = f'-sPageList={pages}'
     return pages

@@ -45,7 +45,7 @@ def eval_cli():
             utilo.Parameter(
                 longcut='dpi',
                 message='use 216 as default',
-                args=dict(default=DPI),
+                args={'default': DPI},
             )
         ],
         prog=ughost.PROCESS,

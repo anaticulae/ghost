@@ -37,7 +37,7 @@ Homepage = "https://github.com/anaticulae/ughost"
 Repository = "https://github.com/anaticulae/ughost"
 
 [project.scripts]
-ughost = "ughost.cli:main"
+ghost = "ughost.cli:main"
 
 [build-system]
 requires = [

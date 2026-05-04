@@ -21,5 +21,5 @@ def small(source: str, destination: str, pages: tuple = None):
     pages = ughost.utils.gpages_fromtuple(pages)
     config = '-sDEVICE=pdfwrite -dBATCH -dNOPAUSE -SAFE'
     source = f'"{source}"'
-    cmd = f'{ughost.utils.ghost} {config} {pages} -sOutputFile={destination} {source}'
+    cmd = f'{ughost.utils.GHOST} {config} {pages} -sOutputFile={destination} {source}'
     utilo.run(cmd)
