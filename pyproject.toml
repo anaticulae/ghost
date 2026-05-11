@@ -27,7 +27,7 @@ license-files = ["LICENSE"]
 
 [project.optional-dependencies]
 dev = [
-    "utilotest>=1.0.3,<2.0.0",
+    "utilotest>=1.0.4,<2.0.0",
     "hoverpower>=1.1.0,<2.0.0",
     "upainter>=1.0.0,<2.0.0",
 ]
