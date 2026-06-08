@@ -9,7 +9,7 @@ authors = [
 ]
 
 dependencies = [
-    "utilo>=2.107.5,<3.0.0",
+    "utilo>=2.109.0,<3.0.0",
     "iamraw>=4.91.4,<5.0.0",
     "Pillow>=12.2.0,<13.0.0",
     "pdflog>=1.0.2,<2.0.0",
@@ -27,8 +27,8 @@ license-files = ["LICENSE"]
 
 [project.optional-dependencies]
 dev = [
-    "utilotest>=1.0.3,<2.0.0",
-    "hoverpower>=1.1.0,<2.0.0",
+    "utilotest>=1.0.4,<2.0.0",
+    "hoverpower>=1.4.2,<2.0.0",
     "upainter>=1.0.0,<2.0.0",
 ]
 
