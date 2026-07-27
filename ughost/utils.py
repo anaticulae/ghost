@@ -18,10 +18,10 @@ GHOST = 'gswin64c' if utilo.iswin() else 'gs'
 
 def pdfwrite(
     source: str,
-    dpi: int = 300,
+    dpi: int | float = 300,
     formats: str = 'pngalpha',
-    root: str = None,
-    pages: tuple = None,
+    root: str | None = None,
+    pages: tuple | None = None,
 ):
     root = utilo.tmpdir(root=ughost.ROOT) if root is None else root
     if isinstance(pages, int):  # pylint:disable=W0160
@@ -36,7 +36,7 @@ def pdfwrite(
     return root
 
 
-def gpages_fromtuple(pages: tuple = None) -> str:
+def gpages_fromtuple(pages: tuple | None = None) -> str:
     """\
     >>> gpages_fromtuple((1, 2, 3))
     '-sPageList=2,3,4'
