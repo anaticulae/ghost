@@ -13,8 +13,6 @@ import utilo
 
 import ughost
 
-GHOST = 'gswin64c' if utilo.iswin() else 'gs'
-
 
 def pdfwrite(
     source: str,
@@ -31,7 +29,7 @@ def pdfwrite(
     pages = gpages_fromtuple(pages)
     config = f'-sDEVICE={formats} -r{dpi} -dBATCH -dNOPAUSE -SAFE'
     source = f'"{source}"'
-    cmd = f'{GHOST} {config} {pages} -sOutputFile={destination} {source}'
+    cmd = f'{ughost.GS} {config} {pages} -sOutputFile={destination} {source}'
     utilo.run(cmd)
     return root
 

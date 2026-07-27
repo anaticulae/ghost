@@ -16,5 +16,5 @@ run, fail = utilotest.create_cli_runner(ughost)
 
 ughostscript = pytest.mark.skipif(
     not ughost.HAS_GHOST,
-    reason='install ughostscript',
+    reason='install ghostscript',
 )
