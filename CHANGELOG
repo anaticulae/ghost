@@ -1,6 +1,86 @@
 # CHANGELOG
 
 
+## v1.1.0 (2026-07-28)
+
+### Bug Fixes
+
+- **project**: Add missing comma
+  ([`001f7ef`](https://github.com/anaticulae/ghost/commit/001f7ef797330d58b379b5a5032bd66e8cfb5028))
+
+- **pyproject**: Adjust cli name
+  ([`1a9a499`](https://github.com/anaticulae/ghost/commit/1a9a49956ca5b55670aac2ee16b09919e6411e53))
+
+### Chores
+
+- **docker**: Add missing ghostscript
+  ([`a1b9e4a`](https://github.com/anaticulae/ghost/commit/a1b9e4a082ab6f13a6582ca5dc04a89445a3cd8a))
+
+- **docker**: Ugprade docker base image
+  ([`f18b88f`](https://github.com/anaticulae/ghost/commit/f18b88fd6c7d5d46703af233495f000ef9a5d8fe))
+
+- **github**: Do not decrypt twice
+  ([`b5828f4`](https://github.com/anaticulae/ghost/commit/b5828f4e363136753e47f96e227005b4c4bdb46e))
+
+- **github**: Upgrade workflows
+  ([`ef3b103`](https://github.com/anaticulae/ghost/commit/ef3b10327ded8f2353f0557cb9124952345e864b))
+
+- **license**: Add license file
+  ([`b33981e`](https://github.com/anaticulae/ghost/commit/b33981e3e3f45f9859af4cdf08ce560ad763f002))
+
+- **make**: Adjust tmp path
+  ([`4cafdf8`](https://github.com/anaticulae/ghost/commit/4cafdf81432c06504f2be25ff60ee65869989853))
+
+- **make**: Hide secrets in log file
+  ([`1521983`](https://github.com/anaticulae/ghost/commit/1521983262c527ef3ef45318a9f64396ee892ce2))
+
+- **power**: Setup extraction folder
+  ([`17cab0e`](https://github.com/anaticulae/ghost/commit/17cab0ea5c4dfe8a90334c197709707053bf0438))
+
+- **pyproject**: Release on every commit
+  ([`25d2ddf`](https://github.com/anaticulae/ghost/commit/25d2ddfb1b51bbe2e7f4e581ccc3f990f0fb2df7))
+
+- **pyproject**: Shrink test data downloader
+  ([`b737414`](https://github.com/anaticulae/ghost/commit/b73741460868e26dfedb0e6c517cc2234be1c44e))
+
+- **requirements**: Upgrade pyproject.toml
+  ([`81d98dd`](https://github.com/anaticulae/ghost/commit/81d98dd735c9f95b1b83c48787de411b2bf93aef))
+
+### Code Style
+
+- **github**: Format code
+  ([`67da6ff`](https://github.com/anaticulae/ghost/commit/67da6ff04b33d37ddec07023671d0509eb22029e))
+
+- **pyproject**: Sort dependencies
+  ([`d2f79d4`](https://github.com/anaticulae/ghost/commit/d2f79d4e05ab57f78d436e1a5e9ac870f57924ce))
+
+### Documentation
+
+- **utils**: Extend interface documentation
+  ([`3f7c32f`](https://github.com/anaticulae/ghost/commit/3f7c32f0bc87a9052644ce6f2b7433148e75e80c))
+
+### Features
+
+- **cmd**: Add constant with ghostscript executable
+  ([`2759242`](https://github.com/anaticulae/ghost/commit/275924275a71ba47b7aa1eeb65393ceb88e63762))
+
+### Refactoring
+
+- **ghost**: Use package constant
+  ([`3dc3686`](https://github.com/anaticulae/ghost/commit/3dc3686bc55cf2245d9284bd694b8075b10a8e1b))
+
+- **utilo**: Replace with utilo code
+  ([`ab7794a`](https://github.com/anaticulae/ghost/commit/ab7794aa8a9d9d6b6739e03be2c1f7caf1e99a40))
+
+### Testing
+
+- **pdfwrite**: Add baseline
+  ([`33f170b`](https://github.com/anaticulae/ghost/commit/33f170bb70ce3568481f0ea2c34c1ebc89f98e3a))
+
+- **refactor**: Improve naming
+  ([`3157769`](https://github.com/anaticulae/ghost/commit/3157769e669d823fc1536e55fc9648fb072ed5f8))
+
+
 ## v1.0.1 (2026-05-04)
 
 ### Bug Fixes
