@@ -16,7 +16,7 @@ import tests
 import ughost
 
 
-@tests.ughostscript
+@tests.gs
 def test_optimize_small(td):
     """Shrink pdf to given number of pages."""
     source = hoverpower.PAPER06B_PDF

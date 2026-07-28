@@ -18,7 +18,7 @@ import tests
 import ughost
 
 
-@tests.ughostscript
+@tests.gs
 def test_images(td):
     boundings = [
         iamraw.ImageInformation(

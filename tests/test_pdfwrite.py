@@ -17,7 +17,7 @@ import tests
 import ughost
 
 
-@tests.ughostscript
+@tests.gs
 @utilotest.longrun
 def test_pdfwrite_all():
     source = hoverpower.TECH019_PDF
@@ -26,7 +26,7 @@ def test_pdfwrite_all():
     assert len(extracted) == 19
 
 
-@tests.ughostscript
+@tests.gs
 def test_pdfwrite_pages():
     """ughost script page numbers are ascending instead of names by page
     number."""
@@ -43,7 +43,7 @@ def test_pdfwrite_pages():
     utilotest.assert_bin(loaded[1], (1204049905, 3839788996, 2476290319))
 
 
-@tests.ughostscript
+@tests.gs
 def test_pdfwrite_with_spaces(td):
     dst = td.tmpdir.join('space with space.pdf')
     utilo.file_copy(src=hoverpower.TECH019_PDF, dst=dst)
