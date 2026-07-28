@@ -1,63 +1,68 @@
-.PHONY: docker-build docker-run build clean
+.PHONY: docker-build \
+	docker-alltest \
+	docker-decrypt \
+	docker-doctest \
+	docker-fasttest \
+	docker-lint \
+	docker-longtest \
+	docker-release \
+	docker-upload
 
+NAME := ghost
 VERSION := $(shell git rev-parse --short HEAD 2>/dev/null || echo "latest")
-CURDIR := $(CURDIR)
+IMAGE := ghcr.io/anaticulae/$(NAME):$(VERSION)
 
-NAME = ughost
-IMAGE := $(NAME):$(VERSION)
-IMAGE_NAME := ghcr.io/anaticulae/$(IMAGE)
+WORKDIR := /var/workdir
+TMP := /tmp/ghost
+
+DOCKER_RUN := docker run \
+	-v $(CURDIR):$(WORKDIR) \
+	-v $(TMP):$(TMP)
 
 docker-build:
-	docker build -t $(IMAGE_NAME) .
+	docker build -t $(IMAGE) .
 
-docker-upload:
-	docker push $(IMAGE_NAME)
+docker-upload: docker-build
+	docker push $(IMAGE)
 
 docker-doctest: docker-build
-	docker run\
-		-v $(CURDIR):/var/workdir\
-		$(IMAGE_NAME)\
+	$(DOCKER_RUN) \
+		$(IMAGE) \
 		"baw test docs"
 
 docker-fasttest: docker-decrypt
-	docker run\
-		-v $(CURDIR):/var/workdir\
-		-v /tmp/ghost:/tmp/ghost\
-		$(IMAGE_NAME)\
+	$(DOCKER_RUN) \
+		$(IMAGE) \
 		"baw test fast"
 
 docker-longtest: docker-decrypt
-	docker run\
-		-v $(CURDIR):/var/workdir\
-		-v /tmp/ghost:/tmp/ghost\
-		$(IMAGE_NAME)\
+	$(DOCKER_RUN) \
+		$(IMAGE) \
 		"baw test long"
 
 docker-alltest: docker-decrypt
-	docker run\
-		-v $(CURDIR):/var/workdir\
-		-v /tmp/ghost:/tmp/ghost\
-		$(IMAGE_NAME)\
+	$(DOCKER_RUN) \
+		$(IMAGE) \
 		"baw test all"
 
 docker-lint: docker-build
-	docker run\
-		-v $(CURDIR):/var/workdir\
-		$(IMAGE_NAME)\
+	$(DOCKER_RUN) \
+		$(IMAGE) \
 		"baw lint all"
 
 docker-decrypt: docker-build
-	docker run\
-		-v $(CURDIR):/var/workdir\
-		-v /tmp/ghost:/tmp/ghost\
-		-e HOVERPOWER_STORE=/var/workdir/hoverpower/repo\
-		-e HOVERPOWER_SECRET\
-		$(IMAGE_NAME)\
+	$(DOCKER_RUN) \
+		-e HOVERPOWER_STORE=$(WORKDIR)/hoverpower/repo \
+		-e HOVERPOWER_SECRET \
+		$(IMAGE) \
 		"powerdownload && powerdecrypt"
 
 docker-release: docker-build
-	docker run\
-		-v $(CURDIR):/var/workdir\
-		-e GH_TOKEN\
-		$(IMAGE_NAME)\
-		"baw release --no_test --no_linter"
+	@if git describe --exact-match --tags HEAD >/dev/null 2>&1; then \
+		echo "Current commit is already tagged. Skipping release."; \
+	else \
+		$(DOCKER_RUN) \
+			-e GH_TOKEN \
+			$(IMAGE) \
+			"baw release --no_test --no_linter"; \
+	fi
