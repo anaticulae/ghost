@@ -14,7 +14,7 @@ import tests
 import ughost.parts
 
 
-@tests.ughostscript
+@tests.gs
 def test_parts(td):  # pylint:disable=W0613
     source = hoverpower.BACHELOR028_PDF
     boundings = [
@@ -31,7 +31,7 @@ def test_parts(td):  # pylint:disable=W0613
     upainter.show_figure(extracted[0])
 
 
-@tests.ughostscript
+@tests.gs
 def test_run_extractor(td):
     source = hoverpower.BACHELOR028_PDF
     boundings = [

@@ -7,7 +7,13 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-FROM ghcr.io/anaticulae/baw:447bf27
+FROM ghcr.io/anaticulae/baw:696994f
+
+ENV SHARED_TMP=/tmp/ghost/
+ENV HOVERPOWER_STORE=/var/workdir/hoverpower/repo
+ENV BAW=/tmp/bar/
+
+RUN apk add --no-cache ghostscript
 
 WORKDIR /var/install
 

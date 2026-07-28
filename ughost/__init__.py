@@ -20,8 +20,24 @@ from ughost.utils import pdfwrite
 
 __version__ = '0.9.1'
 
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+ROOT = os.path.abspath(utilo.join(os.path.dirname(__file__), '..'))
 PROCESS = 'ughost'
 
-INSTALLED = utilo.hasprog('gs') or utilo.hasprog('gswin64c')
+CMDLINE = 'gs ghostscript gswin64c'.split()
+
+
+def cmdline() -> str | None:
+    """\
+    >>> cmdline()
+    'gs'
+    """
+    for item in CMDLINE:
+        if not utilo.hasprog(item):
+            continue
+        return item
+    return None
+
+
+GS = cmdline()
+INSTALLED = GS is not None
 HAS_GHOST = INSTALLED

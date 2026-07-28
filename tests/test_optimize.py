@@ -7,20 +7,19 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import os
-
 import hoverpower
 import pdflog
+import utilo
 
 import tests
 import ughost
 
 
-@tests.ughostscript
+@tests.gs
 def test_optimize_small(td):
     """Shrink pdf to given number of pages."""
     source = hoverpower.PAPER06B_PDF
-    outpath = os.path.join(td.tmpdir, 'optimo.pdf')
+    outpath = utilo.join(td.tmpdir, 'optimo.pdf')
     ughost.small(source, outpath, pages=(3, 4))
     pages = pdflog.pagecount(outpath)
     assert pages == 2

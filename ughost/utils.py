@@ -7,36 +7,32 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import os
-
 import utilo
 
 import ughost
 
-GHOST = 'gswin64c' if utilo.iswin() else 'gs'
-
 
 def pdfwrite(
     source: str,
-    dpi: int = 300,
+    dpi: int | float = 300,
     formats: str = 'pngalpha',
-    root: str = None,
-    pages: tuple = None,
+    root: str | None = None,
+    pages: tuple | None = None,
 ):
     root = utilo.tmpdir(root=ughost.ROOT) if root is None else root
     if isinstance(pages, int):  # pylint:disable=W0160
-        destination = os.path.join(root, f'{pages}.png')
+        destination = utilo.join(root, f'{pages}.png')
     else:
-        destination = os.path.join(root, '%d.png')
+        destination = utilo.join(root, '%d.png')
     pages = gpages_fromtuple(pages)
     config = f'-sDEVICE={formats} -r{dpi} -dBATCH -dNOPAUSE -SAFE'
     source = f'"{source}"'
-    cmd = f'{GHOST} {config} {pages} -sOutputFile={destination} {source}'
+    cmd = f'{ughost.GS} {config} {pages} -sOutputFile={destination} {source}'
     utilo.run(cmd)
     return root
 
 
-def gpages_fromtuple(pages: tuple = None) -> str:
+def gpages_fromtuple(pages: tuple | None = None) -> str:
     """\
     >>> gpages_fromtuple((1, 2, 3))
     '-sPageList=2,3,4'

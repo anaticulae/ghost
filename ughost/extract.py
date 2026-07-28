@@ -8,7 +8,6 @@
 # =============================================================================
 
 import io
-import os
 
 import iamraw
 import PIL.Image
@@ -28,7 +27,7 @@ def images(source: str, boundings: iamraw.ImageInformations, dpi=DPI) -> list:
     loaded = [
         load_image(
             bounding,
-            path=os.path.join(root, f'{pagenr[bounding.page]}.png'),
+            path=utilo.join(root, f'{pagenr[bounding.page]}.png'),
             dpi=dpi,
         ) for bounding in boundings
     ]
