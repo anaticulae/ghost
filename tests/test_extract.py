@@ -7,8 +7,6 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import os
-
 import hoverpower
 import iamraw
 import utilo
@@ -31,7 +29,7 @@ def test_images(td):
         boundings=boundings,
     )
     assert len(loaded) == 1
-    png = os.path.join(td.tmpdir, 'test.png')
+    png = utilo.join(td.tmpdir, 'test.png')
     image = loaded[0]
     utilo.file_create_binary(png, content=image)
     # verify result

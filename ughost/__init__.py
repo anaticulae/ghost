@@ -20,7 +20,7 @@ from ughost.utils import pdfwrite
 
 __version__ = '0.9.1'
 
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+ROOT = os.path.abspath(utilo.join(os.path.dirname(__file__), '..'))
 PROCESS = 'ughost'
 
 CMDLINE = 'gs ghostscript gswin64c'.split()

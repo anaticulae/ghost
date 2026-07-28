@@ -7,8 +7,6 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import os
-
 import utilo
 
 import ughost
@@ -23,9 +21,9 @@ def pdfwrite(
 ):
     root = utilo.tmpdir(root=ughost.ROOT) if root is None else root
     if isinstance(pages, int):  # pylint:disable=W0160
-        destination = os.path.join(root, f'{pages}.png')
+        destination = utilo.join(root, f'{pages}.png')
     else:
-        destination = os.path.join(root, '%d.png')
+        destination = utilo.join(root, '%d.png')
     pages = gpages_fromtuple(pages)
     config = f'-sDEVICE={formats} -r{dpi} -dBATCH -dNOPAUSE -SAFE'
     source = f'"{source}"'
