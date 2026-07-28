@@ -9,6 +9,8 @@
 
 FROM ghcr.io/anaticulae/baw:696994f
 
+RUN apk add --no-cache ghostscript
+
 WORKDIR /var/install
 
 COPY pyproject.toml .
