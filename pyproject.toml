@@ -29,7 +29,7 @@ content-type = "text/markdown"
 
 [project.optional-dependencies]
 dev = [
-    "hoverpower>=1.5.2,<2.0.0",
+    "hoverpower>=1.6.0,<2.0.0",
     "upainter>=1.0.0,<2.0.0",
     "utilotest>=1.0.5,<2.0.0",
 ]
